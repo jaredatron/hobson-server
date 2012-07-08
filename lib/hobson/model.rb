@@ -1,11 +1,11 @@
 require 'redis'
 require 'ohm'
 require 'hobson/patches/ohm'
-require 'active_model'
+# require 'active_model'
 
 class Hobson::Model < Ohm::Model
 
-  include ActiveModel::Validations
+  # include ActiveModel::Validations
 
 end
 

@@ -5,9 +5,23 @@ describe Hobson::Project do
   it "should require a uniq name" do
     ->{
       2.times{
-        Hobson::Project.create(origin:'git://github.com/rails/rails.git')
+        Hobson::Project.create(
+          name:  'rails',
+          origin:'git://github.com/rails/rails.git'
+        )
       }
     }.should raise_error Ohm::UniqueIndexViolation, 'name is not unique.'
+  end
+
+  it "should require a name" do
+    project = Hobson::Project.new
+    project.save.should be_false
+    project.errors[:name].should include :not_present
+  end
+
+  it "should auto assign name from origin" do
+    project = Hobson::Project.new(origin:'git://github.com/rails/rails.git')
+    project.name.should == 'rails'
   end
 
 end
