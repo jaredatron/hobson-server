@@ -23,8 +23,8 @@ class Hobson::Project < Hobson::Model
   end
 
   def self.name_from_origin origin
-    origin.scan(%r{/([^/]+?)(?:/|\.git)?$}).try(:first).try(:first) rescue
-      raise "unable to parse project name from origin #{origin.inspect}"
+    name = origin[%r{/([^/]+?)(?:/|\.git)?$}, 1] || origin[%r{([^/]+)$}]
+    name or raise "unable to parse project name from origin #{origin.inspect}"
   end
 
 end

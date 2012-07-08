@@ -10,6 +10,11 @@ class Hobson::TestRun < Hobson::Model
   collection :tests, :'Hobson::Project::Test'
   collection :jobs,  :Job
 
+
+  def schedule_build!
+    Resque.enqueue Hobson::TestRun::Builder(id)
+  end
+
 end
 
 require 'hobson/test_run/job'

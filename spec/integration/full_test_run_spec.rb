@@ -8,9 +8,17 @@ describe "a full hobson test run" do
 
   it "should work" do
 
-    debugger;1
+    test_project_path = HOBSON_ROOT.join('test/projects/simple')
+    sha = test_project_path.join('git/refs/heads/master').read.chomp
 
-    # Hobson::Project.create(origin:)
+    # create a project using a local path
+    project = Hobson::Project.create(origin: test_project_path.to_s)
+
+    test_run = Hobson::TestRun.new(project: project, sha: sha)
+
+    test_run.schedule_build!
+
+    debugger;1
 
     # create project
     # create test_run

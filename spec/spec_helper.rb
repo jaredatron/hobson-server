@@ -1,5 +1,14 @@
+
+HOBSON_ROOT = Pathname.new File.expand_path('../..', __FILE__)
+
+HOBSON_ROOT.join('spec/support').children.each{ |support|
+  require support.to_s
+}
+
 # TODO setup redis
 require 'hobson'
+require 'resque-unit'
+
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -7,6 +16,7 @@ RSpec.configure do |config|
   config.filter_run :focus
 
   config.before do
-    Ohm.redis.flushdb
+    Hobson.redis.flushdb
+    Resque.reset!
   end
 end

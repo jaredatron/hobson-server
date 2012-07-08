@@ -22,6 +22,9 @@ describe Hobson::Project do
   it "should auto assign name from origin" do
     project = Hobson::Project.new(origin:'git://github.com/rails/rails.git')
     project.name.should == 'rails'
+
+    project = Hobson::Project.new(origin:'/some/local/path/project/foobar')
+    project.name.should == 'foobar'
   end
 
 end
