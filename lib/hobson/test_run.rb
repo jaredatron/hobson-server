@@ -1,6 +1,6 @@
 class Hobson::TestRun < Hobson::Model
 
-  record_events!
+  include Hobson::Model::RecordsEvents
 
   attribute :sha
   attribute :created_at
