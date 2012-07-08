@@ -1,5 +1,7 @@
 class Hobson::TestRun < Hobson::Model
 
+  autoload :Job, 'hobson/test_run/job'
+
   record_events!
 
   attribute :sha
@@ -7,7 +9,7 @@ class Hobson::TestRun < Hobson::Model
 
   reference :project, :Project
 
-  collection :tests, :Test
-  collection :jobs, :Job
+  collection :tests, :'Hobson::Project::Test'
+  collection :jobs,  :Job
 
 end

@@ -3,7 +3,7 @@ require 'ohm'
 class Hobson::Model < Ohm::Model
 
   def self.record_events!
-    set :events, :Event
+    set :events, :'Hobson::Event'
     include Hobson::Model::RecordsEvents
   end
 
