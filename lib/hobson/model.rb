@@ -5,6 +5,10 @@ require 'hobson/patches/ohm'
 
 class Hobson::Model < Ohm::Model
 
+  def self.db
+    Hobson.redis
+  end
+
   # include ActiveModel::Validations
 
 end
