@@ -6,7 +6,10 @@ class Hobson::Project < Hobson::Model
 
   autoload :Test, 'hobson/project/test'
 
+  attribute :name
   attribute :origin
+
+  unique :name
   index :origin
 
   collection :test_runs, :'::Hobson::TestRun'
