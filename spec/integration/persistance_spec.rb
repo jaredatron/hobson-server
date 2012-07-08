@@ -6,10 +6,12 @@ describe "persistance" do
 
     create_project_and_test_runs!
 
-    project = Hobson::Project['rails']
+    project = Hobson::Project.find(name:'rails').first
     project.should be_a Hobson::Project
 
     project.test_runs.size.should == 2
+
+    # project.tests.size.should == 100
 
     test_run = project.test_runs.first
     test_run.should be_a Hobson::TestRun
@@ -21,7 +23,7 @@ describe "persistance" do
     job.tests.size.should == 10
 
     test = job.tests.first
-    test.should be_a Hobson::Project::Test
+    test.should be_a Hobson::TestRun::Test
     test.name.should be_a String
     test.est_runtime.should be_a Integer
     test.runtime.should be_a Integer
@@ -39,8 +41,6 @@ describe "persistance" do
     event.should be_a Hobson::Event
     event.name.should be_a String
     event.occurred_at.should be_a Time
-
-    debugger;1
   end
 
   def create_project_and_test_runs!
@@ -59,8 +59,9 @@ describe "persistance" do
 
       # create some tests
       100.times do |i|
-        test = Hobson::Project::Test.new(
+        test = Hobson::TestRun::Test.new(
           test_run: test_run,
+          type: "spec",
           name: "spec/#{i}_spec.rb",
           est_runtime: rand,
           running: false,

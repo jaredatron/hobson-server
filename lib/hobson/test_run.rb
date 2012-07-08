@@ -7,7 +7,7 @@ class Hobson::TestRun < Hobson::Model
 
   reference :project, :'Hobson::Project'
 
-  collection :tests, :'Hobson::Project::Test'
+  collection :tests, :Test
   collection :jobs,  :Job
 
   def validate
@@ -21,4 +21,5 @@ class Hobson::TestRun < Hobson::Model
 end
 
 require 'hobson/test_run/builder'
+require 'hobson/test_run/test'
 require 'hobson/test_run/job'

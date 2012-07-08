@@ -2,6 +2,8 @@ require 'popen4'
 
 class Hobson::Project::Workspace
 
+  ExecutionError = Class.new(StandardError)
+
   def initialize project
     @project = project
     @path = Hobson.workspace.projects_path + project.name
@@ -45,6 +47,7 @@ class Hobson::Project::Workspace
 
 
   def execute command
+    command = "bundle exec #{command}" if bundler?
     command = "cd #{path.to_s.inspect} && #{command}"
     command = "source #{rvm_source_file.inspect} && rvm rvmrc trust #{path.to_s.inspect} > /dev/null && #{command}" if rvm?
     command = "bash -lc #{command.inspect}"

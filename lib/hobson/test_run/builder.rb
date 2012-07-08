@@ -16,8 +16,17 @@ class Hobson::TestRun::Builder
 
     workspace.checkout! test_run.sha
 
+    # TODO make this read a .hobson file to see what to execute
+    tests = workspace.execute('hobson list').split("\n")
+    tests.map!{ |uid|
+      Hobson::Project::Test.find_or_create(uid: uid)
+    }
 
-    pp workspace.execute 'hobson list'
+    test.each{|test| test_run.tests.add test }
+
+    debugger;1
+
+
 
 
           # setup workspace
@@ -27,7 +36,7 @@ class Hobson::TestRun::Builder
       # ask project for a list of tests
       # create & schedule test_run jobs
 
-    debugger;1
+
 
     raise "building test run #{test_run.inspect}"
 

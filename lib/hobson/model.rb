@@ -9,6 +9,10 @@ class Hobson::Model < Ohm::Model
     Hobson.redis
   end
 
+  def self.find_or_create conditions
+    find(conditions).first or create(conditions)
+  end
+
   # include ActiveModel::Validations
 
 end

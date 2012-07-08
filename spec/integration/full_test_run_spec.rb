@@ -9,7 +9,7 @@ describe "a full hobson test run" do
   it "should work" do
 
     test_project_path = HOBSON_ROOT.join('test/projects/rspec_and_cucumber')
-    sha = test_project_path.join('git/refs/heads/master').read.chomp
+    sha = test_project_path.join('.git/refs/heads/hobson2.0').read.chomp
 
     # create a project using a local path
     project = Hobson::Project.create(origin: test_project_path.to_s)

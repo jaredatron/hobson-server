@@ -6,6 +6,7 @@ class Hobson::Project < Hobson::Model
   unique :name
   index :name
 
+  collection :tests, :'::Hobson::Project::Test'
   collection :test_runs, :'::Hobson::TestRun'
 
   # validates_presence_of :name

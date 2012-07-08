@@ -1,15 +1,19 @@
 class Hobson::Project::Test < Hobson::Model
 
-  reference :test_run, :'Hobson::TestRun'
+  reference :project, :'Hobson::Project'
+  index :test_run_id
 
-  attribute :name
-  attribute :est_runtime, ->(x){ Integer(x) if x }
-  attribute :running,     ->(x){ x == 1 }
-  attribute :result      # PASS|FAIL|PENDING
-  attribute :runtime,     ->(x){ Integer(x) if x }
+  attribute :uid # "#{type}:#{name}"
 
-  def running= value
-    value ? 1 : nil
+  index  :uid
+  unique :uid
+
+  def type
+    type = uid.match(/^(.+?):(.*)$/).to_a[-2]
+  end
+
+  def name
+    name = uid.match(/^(.+?):(.*)$/).to_a[-1]
   end
 
 end
