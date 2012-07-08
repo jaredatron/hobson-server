@@ -1,14 +1,14 @@
 class Hobson::Project < Hobson::Model
 
-  def self.[] origin
-    find(origin:origin).first
+  def self.[] name
+    find(name:name).first
   end
 
   attribute :name
   attribute :origin
 
   unique :name
-  index :origin
+  index :name
 
   collection :test_runs, :'::Hobson::TestRun'
 

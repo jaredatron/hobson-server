@@ -6,7 +6,7 @@ describe "persistance" do
 
     create_project_and_test_runs!
 
-    project = Hobson::Project['git://github.com/rails/rails.git']
+    project = Hobson::Project['rails']
     project.should be_a Hobson::Project
 
     project.test_runs.size.should == 2
