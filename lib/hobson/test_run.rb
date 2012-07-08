@@ -1,7 +1,5 @@
 class Hobson::TestRun < Hobson::Model
 
-  autoload :Job, 'hobson/test_run/job'
-
   record_events!
 
   attribute :sha
@@ -13,3 +11,5 @@ class Hobson::TestRun < Hobson::Model
   collection :jobs,  :Job
 
 end
+
+require 'hobson/test_run/job'

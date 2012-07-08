@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Hobson::Server::VERSION
 
   gem.add_runtime_dependency 'ohm', '>=1.0.2'
+  gem.add_runtime_dependency 'activemodel'
 
   gem.add_development_dependency 'rspec'
 end

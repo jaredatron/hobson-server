@@ -4,8 +4,6 @@ class Hobson::Project < Hobson::Model
     find(origin:origin).first
   end
 
-  autoload :Test, 'hobson/project/test'
-
   attribute :name
   attribute :origin
 
@@ -14,4 +12,10 @@ class Hobson::Project < Hobson::Model
 
   collection :test_runs, :'::Hobson::TestRun'
 
+  def before_save
+    self.activation_code ||= "user:#{id}"
+  end
+
 end
+
+require 'hobson/project/test'

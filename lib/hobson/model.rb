@@ -1,3 +1,7 @@
+require 'redis'
+require 'ohm'
+require 'active_model'
+
 class Hobson::Model < Ohm::Model
 
   def self.record_events!
