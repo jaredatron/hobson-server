@@ -2,11 +2,17 @@ require 'active_support/time'
 
 module Hobson
 
-  def redis
-    @redis ||= Redis.current
+  class << self
+    def redis
+      @redis ||= Redis.current
+    end
+
+    attr_writer :redis
   end
 
-  attr_writer :redis
+  def self.configure config
+
+  end
 
 end
 

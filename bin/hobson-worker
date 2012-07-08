@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+ENV['BUNDLE_GEMFILE'] = File.expand_path('../../Gemfile', __FILE__)
+
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+require 'hobson'
+
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: hobson-worker [options]"
+
+  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+    options[:verbose] = v
+  end
+
+  opts.on("-d", "--[no-]daemonize", "daemonize") do |v|
+    options[:daemonize] = v
+  end
+
+end.parse!
+
+
+Hobson::Worker.new
