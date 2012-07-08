@@ -29,4 +29,5 @@ class Hobson::Project < Hobson::Model
 
 end
 
+require 'hobson/project/workspace'
 require 'hobson/project/test'
