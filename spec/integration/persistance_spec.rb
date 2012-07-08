@@ -28,6 +28,18 @@ describe "persistance" do
     test.running.should be_false
     test.result.should == 'PASS'
 
+    test_run.events.map(&:name).to_set.should == %w{
+      building
+      detecting_tests
+      balancing
+      enqueued_jobs
+    }.to_set
+
+    event = test_run.events.first
+    event.should be_a Hobson::Event
+    event.name.should be_a String
+    event.occurred_at.should be_a Time
+
     debugger;1
   end
 

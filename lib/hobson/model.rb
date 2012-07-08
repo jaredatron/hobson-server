@@ -1,5 +1,3 @@
-require 'ohm'
-
 class Hobson::Model < Ohm::Model
 
   def self.record_events!

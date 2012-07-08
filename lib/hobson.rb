@@ -1,5 +1,6 @@
 require 'redis'
 require 'ohm'
+require 'time'
 
 module Hobson
   autoload :Model,   'hobson/model'
