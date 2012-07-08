@@ -2,11 +2,15 @@ require 'spec_helper'
 
 describe "a full hobson test run" do
 
-
+  before{
+    TestWorkspace.reset!
+  }
 
   it "should work" do
 
-    Hobson::Project.create(origin:)
+    debugger;1
+
+    # Hobson::Project.create(origin:)
 
     # create project
     # create test_run
