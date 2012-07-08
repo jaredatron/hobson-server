@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "a full hobson test run" do
 
   before{
-    TestWorkspace.reset!
+    # TestWorkspace.reset!
   }
 
   it "should work" do
@@ -14,9 +14,13 @@ describe "a full hobson test run" do
     # create a project using a local path
     project = Hobson::Project.create(origin: test_project_path.to_s)
 
-    test_run = Hobson::TestRun.new(project: project, sha: sha)
+    test_run = Hobson::TestRun.create(project: project, sha: sha)
 
     test_run.schedule_build!
+
+    assert_queued(Hobson::TestRun::Builder, ["1"])
+
+    Resque.run!
 
     debugger;1
 
