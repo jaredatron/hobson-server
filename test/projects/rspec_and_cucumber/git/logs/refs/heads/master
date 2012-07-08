@@ -1,0 +1,21 @@
+0000000000000000000000000000000000000000 8688e925930d24512d18c13d78e73403849acb6d Jared Grippe <jared@deadlyicon.com> 1322032914 -0800	clone: from git://github.com/deadlyicon/example_hobson_project.git
+8688e925930d24512d18c13d78e73403849acb6d 8b512542f3c49f1013c4dd689ada07997b4004e8 Jared Grippe <jared@deadlyicon.com> 1322071304 -0800	commit: added hobson to the Gemfile and removed the redis namespace in the config
+8b512542f3c49f1013c4dd689ada07997b4004e8 34e528170f3ad6e9cd88aefb62247d38c5d5d648 Jared Grippe <jared@deadlyicon.com> 1322074667 -0800	commit: WIP
+34e528170f3ad6e9cd88aefb62247d38c5d5d648 1ce1ff18c6caa9a159e838831c1dc99ffe91ba1b Jared Grippe <jared@deadlyicon.com> 1322096150 -0800	push
+1ce1ff18c6caa9a159e838831c1dc99ffe91ba1b 184d50ccfbe136899482e5234b902e8ffbd39618 Jared Grippe <jared@deadlyicon.com> 1322097041 -0800	push
+184d50ccfbe136899482e5234b902e8ffbd39618 47db110c1157ded0e2d2dff4a0e029c4b99d3a8d Jared Grippe <jared@deadlyicon.com> 1325191330 -0800	rebase finished: refs/heads/master onto 47db110c1157ded0e2d2dff4a0e029c4b99d3a8d
+47db110c1157ded0e2d2dff4a0e029c4b99d3a8d 8804485eadc769be83000c36d6e279714e5d08c7 Jared Grippe <jared@deadlyicon.com> 1325191510 -0800	commit: removed hobson from Gemfile
+8804485eadc769be83000c36d6e279714e5d08c7 24cc9bf7597601ae5d0cc99f982d8bb7b6aed7f8 Jared Grippe <jared@deadlyicon.com> 1325191894 -0800	commit: fixed a bug in hobson hooks
+24cc9bf7597601ae5d0cc99f982d8bb7b6aed7f8 17b595195b61d4eab64ec72fa573dd82cb0b8cae Jared Grippe <jared@deadlyicon.com> 1325195089 -0800	commit: added flakey_spec
+17b595195b61d4eab64ec72fa573dd82cb0b8cae 67162c4c242c8201698de0ee7c2dac910fe497c7 Jared Grippe <jared@deadlyicon.com> 1325196591 -0800	commit (amend): added flakey_spec
+67162c4c242c8201698de0ee7c2dac910fe497c7 6b1d68e9661a0849532d4f30795efbb18940910d Jared Grippe <jared@deadlyicon.com> 1329778634 -0800	commit: updated hobson.yml config
+6b1d68e9661a0849532d4f30795efbb18940910d caddbe37cf225a3bb90e0cb8d8295e4c03460b91 Jared Grippe <jared@deadlyicon.com> 1329782110 -0800	rebase finished: refs/heads/master onto bb992199db24b7e31f55f69b9e80d6a9c6fd691c
+caddbe37cf225a3bb90e0cb8d8295e4c03460b91 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1332646974 -0700	merge by_scenario_name: Fast-forward
+3dc35719edca885e5218c990077ac18fe2a566bf 8f56a5eca6f3cc15dd6e61366365a308c6dbb8f9 Jared Grippe <jared@deadlyicon.com> 1334005841 -0700	commit: hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+8f56a5eca6f3cc15dd6e61366365a308c6dbb8f9 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334005872 -0700	commit (amend): hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+41cce22bc5e9fb88b803f261e492a76c6d446817 ce751a82b6a140a8b69d45409c9e3a21ef4c53af Jared Grippe <jared@deadlyicon.com> 1334005899 -0700	commit: hobson setup hook now creates untracked2.txt to help us test hobson's workspace reprepare functionality
+ce751a82b6a140a8b69d45409c9e3a21ef4c53af 8dec8504f475063d1e5c264ac5bcc274798e8209 Jared Grippe <jared@deadlyicon.com> 1334006544 -0700	commit: removing code added to the hobson setup hook in the previous two commits because we don't need them outside of those commits
+8dec8504f475063d1e5c264ac5bcc274798e8209 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1334011556 -0700	3dc35719edca885e5218c990077ac18fe2a566bf: updating HEAD
+3dc35719edca885e5218c990077ac18fe2a566bf d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334012090 -0700	commit: removed all the explicit slowness and added a minimal example feature and example spec
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323778 -0700	ballz: updating HEAD
+7fb5825c2be45231cdff96b1924fc52d200c516b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323796 -0700	origin/master: updating HEAD

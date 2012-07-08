@@ -1,0 +1,32 @@
+TEST:spec:spec/a_spec.rb:START:1341733808.173568
+TEST:spec:spec/a_spec.rb:COMPLETE:1341733809.175147:PASS
+TEST:spec:spec/b_spec.rb:START:1341733809.175643
+TEST:spec:spec/b_spec.rb:COMPLETE:1341733810.177613:PASS
+TEST:spec:spec/c_spec.rb:START:1341733810.178049
+TEST:spec:spec/c_spec.rb:COMPLETE:1341733811.1798341:PASS
+TEST:spec:spec/d_spec.rb:START:1341733811.180253
+TEST:spec:spec/d_spec.rb:COMPLETE:1341733812.181694:PASS
+TEST:spec:spec/e_spec.rb:START:1341733812.182133
+TEST:spec:spec/e_spec.rb:COMPLETE:1341733822.19455:PASS
+TEST:spec:spec/flakey_spec.rb:START:1341733822.195022
+TEST:spec:spec/flakey_spec.rb:COMPLETE:1341733832.206204:PASS
+TEST:scenario:A:START:1341733838.2469718
+TEST:scenario:A:COMPLETE:1341733839.248703:PASS
+TEST:scenario:B:START:1341733839.249166
+TEST:scenario:B:COMPLETE:1341733840.251508:PASS
+TEST:scenario:As an admin I should be able to create a post:START:1341733840.251936
+TEST:scenario:As an admin I should be able to create a post:COMPLETE:1341733841.263732:PASS
+TEST:scenario:As an admin I should be able to create a post and delete it:START:1341733841.2638478
+TEST:scenario:As an admin I should be able to create a post and delete it:COMPLETE:1341733842.2654998:PASS
+TEST:scenario:As an admin I should be able to delete a post:START:1341733842.2656572
+TEST:scenario:As an admin I should be able to delete a post:COMPLETE:1341733843.2676978:PASS
+TEST:scenario:As an admin I should be able to view a post:START:1341733843.2678668
+TEST:scenario:As an admin I should be able to view a post:COMPLETE:1341733844.270269:PASS
+TEST:scenario:As a visitor I should be able to view a post:START:1341733844.270439
+TEST:scenario:As a visitor I should be able to view a post:COMPLETE:1341733845.272929:PASS
+TEST:scenario:C:START:1341733845.2733362
+TEST:scenario:C:COMPLETE:1341733846.2756522:PASS
+TEST:scenario:D:START:1341733846.2760692
+TEST:scenario:D:COMPLETE:1341733847.2783942:PASS
+TEST:scenario:E:START:1341733847.278807
+TEST:scenario:E:COMPLETE:1341733857.290234:PASS

@@ -1,0 +1,49 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = git@github.com:deadlyicon/example_hobson_project.git
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	rebase = true
+[branch "by_scenario_name"]
+	remote = origin
+	merge = refs/heads/by_scenario_name
+	rebase = true
+[branch "slow_app_boot_specs_and_features"]
+	remote = origin
+	merge = refs/heads/slow_app_boot_specs_and_features
+	rebase = true
+[branch "integration_setup_hook_creates_untracked1"]
+	remote = origin
+	merge = refs/heads/integration_setup_hook_creates_untracked1
+	rebase = true
+[branch "integration_setup_hook_creates_untracked2"]
+	remote = origin
+	merge = refs/heads/integration_setup_hook_creates_untracked2
+	rebase = true
+[branch "testing_handling_a_spec_with_multiple_describe_blocks"]
+	remote = origin
+	merge = refs/heads/testing_handling_a_spec_with_multiple_describe_blocks
+	rebase = true
+[branch "testing_aborting_a_test_run"]
+	remote = origin
+	merge = refs/heads/testing_aborting_a_test_run
+	rebase = true
+[branch "testing_test_detection"]
+	remote = origin
+	merge = refs/heads/testing_test_detection
+	rebase = true
+[branch "testing_improved_balancing"]
+	remote = origin
+	merge = refs/heads/testing_improved_balancing
+	rebase = true
+[branch "testing_missing_step_definition"]
+	remote = origin
+	merge = refs/heads/testing_missing_step_definition
+	rebase = true

@@ -1,0 +1,51 @@
+Feature: A
+  This feature should take 1 second to run
+
+  Scenario: A
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+Feature: B
+  This feature should take 1 second to run
+
+  Scenario: B
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+Feature: Blog
+  This feature should take 1 second to run
+
+  Scenario: As an admin I should be able to create a post
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+  Scenario: As an admin I should be able to create a post and delete it
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+  Scenario: As an admin I should be able to delete a post
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+  Scenario: As an admin I should be able to view a post
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+  Scenario: As a visitor I should be able to view a post
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+Feature: C
+  This feature should take 1 second to run
+
+  Scenario: C
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+Feature: D
+  This feature should take 1 second to run
+
+  Scenario: D
+    [32mThen this scenario took [32m[1m1[0m[0m[32m second to run[0m
+
+Feature: E
+  This feature should take 1 second to run
+
+  Scenario: E
+    [32mThen this scenario took [32m[1m10[0m[0m[32m second to run[0m
+
+10 scenarios ([32m10 passed[0m)
+10 steps ([32m10 passed[0m)
+0m19.044s

@@ -1,0 +1,21 @@
+
+A
+  should take 1 second to test
+
+B
+  should take 1 second to test
+
+C
+  should take 1 second to test
+
+D
+  should take 1 second to test
+
+E
+  should take 10 second to test
+
+Flakey Spec
+  should fail 60 percent of the time
+
+Finished in 24.03 seconds
+6 examples, 0 failures

@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334011488 -0700	branch: Created from HEAD
+41cce22bc5e9fb88b803f261e492a76c6d446817 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1334012157 -0700	rebase finished: refs/heads/integration_setup_hook_creates_untracked1 onto d6165a8f6387f14ec3a6fa2aa9dfac129072679b
+7fb5825c2be45231cdff96b1924fc52d200c516b 6de51f394792768c1a0fe1383aa91bcedbf274a9 Jared Grippe <jared@deadlyicon.com> 1335324963 -0700	commit: removed what we didnt need from the setup hook
+6de51f394792768c1a0fe1383aa91bcedbf274a9 7a0e0aebb5452a9c7b814aeecbc12b1ab9ccdf0f Jared Grippe <jared@deadlyicon.com> 1335333251 -0700	commit (amend): removed what we didnt need from the hobson hooks

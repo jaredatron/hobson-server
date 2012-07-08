@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 ed035d43355657583d3e30578f56570515c54e9e Jared Grippe <jared@deadlyicon.com> 1332468335 -0700	branch: Created from origin/by_scenario_name
+ed035d43355657583d3e30578f56570515c54e9e 0ebef142aa6fe16a56dc22580f9724859884f6d0 Jared Grippe <jared@deadlyicon.com> 1332468341 -0700	head^: updating HEAD
+0ebef142aa6fe16a56dc22580f9724859884f6d0 552c00e62938ea2aa100c5df77efde174df2a5dc Jared Grippe <jared@deadlyicon.com> 1332641255 -0700	commit: added log to the gitignore file
+552c00e62938ea2aa100c5df77efde174df2a5dc f0f902fb63350cf77442334388188c7587ce0e46 Jared Grippe <jared@deadlyicon.com> 1332641282 -0700	commit: added gems to fix ruby deubgger in 1.9.3
+f0f902fb63350cf77442334388188c7587ce0e46 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1332641358 -0700	commit: added a more complicated example feature file

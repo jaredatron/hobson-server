@@ -1,9 +1,5 @@
 class Hobson::Project < Hobson::Model
 
-  def self.[] name
-    find(name:name).first
-  end
-
   attribute :name
   attribute :origin
 

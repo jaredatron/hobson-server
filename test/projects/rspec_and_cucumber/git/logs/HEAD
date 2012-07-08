@@ -1,0 +1,117 @@
+0000000000000000000000000000000000000000 8688e925930d24512d18c13d78e73403849acb6d Jared Grippe <jared@deadlyicon.com> 1322032914 -0800	clone: from git://github.com/deadlyicon/example_hobson_project.git
+8688e925930d24512d18c13d78e73403849acb6d 8b512542f3c49f1013c4dd689ada07997b4004e8 Jared Grippe <jared@deadlyicon.com> 1322071304 -0800	commit: added hobson to the Gemfile and removed the redis namespace in the config
+8b512542f3c49f1013c4dd689ada07997b4004e8 34e528170f3ad6e9cd88aefb62247d38c5d5d648 Jared Grippe <jared@deadlyicon.com> 1322074667 -0800	commit: WIP
+34e528170f3ad6e9cd88aefb62247d38c5d5d648 34e528170f3ad6e9cd88aefb62247d38c5d5d648 Jared Grippe <jared@deadlyicon.com> 1322096139 -0800	checkout: moving from master to head
+34e528170f3ad6e9cd88aefb62247d38c5d5d648 184d50ccfbe136899482e5234b902e8ffbd39618 Jared Grippe <jared@deadlyicon.com> 1322161375 -0800	checkout: moving from 34e528170f3ad6e9cd88aefb62247d38c5d5d648 to master
+184d50ccfbe136899482e5234b902e8ffbd39618 184d50ccfbe136899482e5234b902e8ffbd39618 Jared Grippe <jared@deadlyicon.com> 1322161395 -0800	checkout: moving from master to head
+184d50ccfbe136899482e5234b902e8ffbd39618 184d50ccfbe136899482e5234b902e8ffbd39618 Jared Grippe <jared@deadlyicon.com> 1322456498 -0800	checkout: moving from 184d50ccfbe136899482e5234b902e8ffbd39618 to master
+184d50ccfbe136899482e5234b902e8ffbd39618 47db110c1157ded0e2d2dff4a0e029c4b99d3a8d Jared Grippe <jared@deadlyicon.com> 1325191330 -0800	checkout: moving from master to 47db110c1157ded0e2d2dff4a0e029c4b99d3a8d^0
+47db110c1157ded0e2d2dff4a0e029c4b99d3a8d 8804485eadc769be83000c36d6e279714e5d08c7 Jared Grippe <jared@deadlyicon.com> 1325191510 -0800	commit: removed hobson from Gemfile
+8804485eadc769be83000c36d6e279714e5d08c7 24cc9bf7597601ae5d0cc99f982d8bb7b6aed7f8 Jared Grippe <jared@deadlyicon.com> 1325191894 -0800	commit: fixed a bug in hobson hooks
+24cc9bf7597601ae5d0cc99f982d8bb7b6aed7f8 17b595195b61d4eab64ec72fa573dd82cb0b8cae Jared Grippe <jared@deadlyicon.com> 1325195089 -0800	commit: added flakey_spec
+17b595195b61d4eab64ec72fa573dd82cb0b8cae 67162c4c242c8201698de0ee7c2dac910fe497c7 Jared Grippe <jared@deadlyicon.com> 1325196591 -0800	commit (amend): added flakey_spec
+67162c4c242c8201698de0ee7c2dac910fe497c7 6b1d68e9661a0849532d4f30795efbb18940910d Jared Grippe <jared@deadlyicon.com> 1329778634 -0800	commit: updated hobson.yml config
+6b1d68e9661a0849532d4f30795efbb18940910d bb992199db24b7e31f55f69b9e80d6a9c6fd691c Jared Grippe <jared@deadlyicon.com> 1329782110 -0800	checkout: moving from master to bb992199db24b7e31f55f69b9e80d6a9c6fd691c^0
+bb992199db24b7e31f55f69b9e80d6a9c6fd691c 341bb36b6f66fb14c19d72aa83981d616bd5ec50 Jared Grippe <jared@deadlyicon.com> 1329782110 -0800	pull --rebase: added flakey_spec
+341bb36b6f66fb14c19d72aa83981d616bd5ec50 caddbe37cf225a3bb90e0cb8d8295e4c03460b91 Jared Grippe <jared@deadlyicon.com> 1329782110 -0800	pull --rebase: updated hobson.yml config
+caddbe37cf225a3bb90e0cb8d8295e4c03460b91 ed035d43355657583d3e30578f56570515c54e9e Jared Grippe <jared@deadlyicon.com> 1332468335 -0700	checkout: moving from master to by_scenario_name
+ed035d43355657583d3e30578f56570515c54e9e 0ebef142aa6fe16a56dc22580f9724859884f6d0 Jared Grippe <jared@deadlyicon.com> 1332468341 -0700	head^: updating HEAD
+0ebef142aa6fe16a56dc22580f9724859884f6d0 552c00e62938ea2aa100c5df77efde174df2a5dc Jared Grippe <jared@deadlyicon.com> 1332641255 -0700	commit: added log to the gitignore file
+552c00e62938ea2aa100c5df77efde174df2a5dc f0f902fb63350cf77442334388188c7587ce0e46 Jared Grippe <jared@deadlyicon.com> 1332641282 -0700	commit: added gems to fix ruby deubgger in 1.9.3
+f0f902fb63350cf77442334388188c7587ce0e46 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1332641358 -0700	commit: added a more complicated example feature file
+3dc35719edca885e5218c990077ac18fe2a566bf caddbe37cf225a3bb90e0cb8d8295e4c03460b91 Jared Grippe <jared@deadlyicon.com> 1332646971 -0700	checkout: moving from by_scenario_name to master
+caddbe37cf225a3bb90e0cb8d8295e4c03460b91 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1332646974 -0700	merge by_scenario_name: Fast-forward
+3dc35719edca885e5218c990077ac18fe2a566bf 8f56a5eca6f3cc15dd6e61366365a308c6dbb8f9 Jared Grippe <jared@deadlyicon.com> 1334005841 -0700	commit: hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+8f56a5eca6f3cc15dd6e61366365a308c6dbb8f9 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334005872 -0700	commit (amend): hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+41cce22bc5e9fb88b803f261e492a76c6d446817 ce751a82b6a140a8b69d45409c9e3a21ef4c53af Jared Grippe <jared@deadlyicon.com> 1334005899 -0700	commit: hobson setup hook now creates untracked2.txt to help us test hobson's workspace reprepare functionality
+ce751a82b6a140a8b69d45409c9e3a21ef4c53af 8dec8504f475063d1e5c264ac5bcc274798e8209 Jared Grippe <jared@deadlyicon.com> 1334006544 -0700	commit: removing code added to the hobson setup hook in the previous two commits because we don't need them outside of those commits
+8dec8504f475063d1e5c264ac5bcc274798e8209 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334011449 -0700	checkout: moving from master to 41cce22bc5e9fb88b803f261e492a76c6d446817
+41cce22bc5e9fb88b803f261e492a76c6d446817 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334011488 -0700	checkout: moving from 41cce22bc5e9fb88b803f261e492a76c6d446817 to integration_setup_hook_creates_untracked1
+41cce22bc5e9fb88b803f261e492a76c6d446817 ce751a82b6a140a8b69d45409c9e3a21ef4c53af Jared Grippe <jared@deadlyicon.com> 1334011528 -0700	checkout: moving from integration_setup_hook_creates_untracked1 to integration_setup_hook_creates_untracked2
+ce751a82b6a140a8b69d45409c9e3a21ef4c53af 8dec8504f475063d1e5c264ac5bcc274798e8209 Jared Grippe <jared@deadlyicon.com> 1334011534 -0700	checkout: moving from integration_setup_hook_creates_untracked2 to master
+8dec8504f475063d1e5c264ac5bcc274798e8209 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1334011556 -0700	3dc35719edca885e5218c990077ac18fe2a566bf: updating HEAD
+3dc35719edca885e5218c990077ac18fe2a566bf d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334012090 -0700	commit: removed all the explicit slowness and added a minimal example feature and example spec
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1334012131 -0700	checkout: moving from master to slow_app_boot_specs_and_features
+3dc35719edca885e5218c990077ac18fe2a566bf 41cce22bc5e9fb88b803f261e492a76c6d446817 Jared Grippe <jared@deadlyicon.com> 1334012154 -0700	checkout: moving from slow_app_boot_specs_and_features to integration_setup_hook_creates_untracked1
+41cce22bc5e9fb88b803f261e492a76c6d446817 d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334012157 -0700	checkout: moving from integration_setup_hook_creates_untracked1 to d6165a8f6387f14ec3a6fa2aa9dfac129072679b^0
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1334012157 -0700	rebase: hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+7fb5825c2be45231cdff96b1924fc52d200c516b ce751a82b6a140a8b69d45409c9e3a21ef4c53af Jared Grippe <jared@deadlyicon.com> 1334012260 -0700	checkout: moving from integration_setup_hook_creates_untracked1 to integration_setup_hook_creates_untracked2
+ce751a82b6a140a8b69d45409c9e3a21ef4c53af d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334012264 -0700	checkout: moving from integration_setup_hook_creates_untracked2 to d6165a8f6387f14ec3a6fa2aa9dfac129072679b^0
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b d42f4a358add8af4288f8d851ac92d576af0fb37 Jared Grippe <jared@deadlyicon.com> 1334012265 -0700	rebase: hobson setup hook now creates untracked1.txt to help us test hobson's workspace reprepare functionality
+d42f4a358add8af4288f8d851ac92d576af0fb37 8b591f8a4e44b870c45748c81141f562d60eceaa Jared Grippe <jared@deadlyicon.com> 1334012265 -0700	rebase: hobson setup hook now creates untracked2.txt to help us test hobson's workspace reprepare functionality
+8b591f8a4e44b870c45748c81141f562d60eceaa 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1334012430 -0700	checkout: moving from integration_setup_hook_creates_untracked2 to 7fb5825c2be45231cdff96b1924fc52d200c516b^0
+7fb5825c2be45231cdff96b1924fc52d200c516b a719809eb3e8d3c6e1c310eca9921e7220ceda25 Jared Grippe <jared@deadlyicon.com> 1334012431 -0700	rebase: hobson setup hook now creates untracked2.txt to help us test hobson's workspace reprepare functionality
+a719809eb3e8d3c6e1c310eca9921e7220ceda25 a719809eb3e8d3c6e1c310eca9921e7220ceda25 Jared Grippe <jared@deadlyicon.com> 1334012580 -0700	checkout: moving from a719809eb3e8d3c6e1c310eca9921e7220ceda25 to temp
+a719809eb3e8d3c6e1c310eca9921e7220ceda25 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1334012584 -0700	integration_setup_hook_creates_untracked1: updating HEAD
+7fb5825c2be45231cdff96b1924fc52d200c516b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334169657 -0700	checkout: moving from temp to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334183711 -0700	checkout: moving from d6165a8f6387f14ec3a6fa2aa9dfac129072679b to testing_handling_a_spec_with_multiple_describe_blocks
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 3243c9d7f4c4c9c0b7b3a5adad9dda24a2b0681e Jared Grippe <jared@deadlyicon.com> 1334184155 -0700	commit: added a spec file with multiple top level describe blocks
+3243c9d7f4c4c9c0b7b3a5adad9dda24a2b0681e d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334184815 -0700	checkout: moving from testing_handling_a_spec_with_multiple_describe_blocks to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334184831 -0700	checkout: moving from d6165a8f6387f14ec3a6fa2aa9dfac129072679b to testing_aborting_a_test_run
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 70639deb499bf0a7ff9c6d4fe94806e008929764 Jared Grippe <jared@deadlyicon.com> 1334187350 -0700	commit: added a number of specs and features with configurable runtimes and behaviors to aid intesting
+70639deb499bf0a7ff9c6d4fe94806e008929764 e6a40f0a967a50cd7942cf81904cc6464afe084a Jared Grippe <jared@deadlyicon.com> 1334187935 -0700	commit: slowed down all the tests significantly to help test the test run abortion process
+e6a40f0a967a50cd7942cf81904cc6464afe084a 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323182 -0700	checkout: moving from testing_aborting_a_test_run to integration_setup_hook_creates_untracked1
+7fb5825c2be45231cdff96b1924fc52d200c516b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323769 -0700	checkout: moving from 7fb5825c2be45231cdff96b1924fc52d200c516b to ballz
+7fb5825c2be45231cdff96b1924fc52d200c516b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323774 -0700	checkout: moving from ballz to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323778 -0700	ballz: updating HEAD
+7fb5825c2be45231cdff96b1924fc52d200c516b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323796 -0700	origin/master: updating HEAD
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323818 -0700	checkout: moving from master to 7fb5825c2be45231cdff96b1924fc52d200c516b
+7fb5825c2be45231cdff96b1924fc52d200c516b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323898 -0700	checkout: moving from 7fb5825c2be45231cdff96b1924fc52d200c516b to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335323903 -0700	checkout: moving from master to ballz
+7fb5825c2be45231cdff96b1924fc52d200c516b 7ce5b262c14346149de628cb87b48739456dbda7 Jared Grippe <jared@deadlyicon.com> 1335323925 -0700	commit: WIP
+7ce5b262c14346149de628cb87b48739456dbda7 d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323930 -0700	checkout: moving from ballz to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 7ce5b262c14346149de628cb87b48739456dbda7 Jared Grippe <jared@deadlyicon.com> 1335323934 -0700	checkout: moving from master to ballz
+7ce5b262c14346149de628cb87b48739456dbda7 7ce5b262c14346149de628cb87b48739456dbda7 Jared Grippe <jared@deadlyicon.com> 1335323935 -0700	checkout: moving from ballz to ballz
+7ce5b262c14346149de628cb87b48739456dbda7 49c2d0fcb873229d55dfa01a01daf7108f0488ce Jared Grippe <jared@deadlyicon.com> 1335323944 -0700	commit: WIP
+49c2d0fcb873229d55dfa01a01daf7108f0488ce d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335323947 -0700	checkout: moving from ballz to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 49c2d0fcb873229d55dfa01a01daf7108f0488ce Jared Grippe <jared@deadlyicon.com> 1335323951 -0700	checkout: moving from master to ballz
+49c2d0fcb873229d55dfa01a01daf7108f0488ce 49c2d0fcb873229d55dfa01a01daf7108f0488ce Jared Grippe <jared@deadlyicon.com> 1335323953 -0700	checkout: moving from ballz to ballz
+49c2d0fcb873229d55dfa01a01daf7108f0488ce 7fb5825c2be45231cdff96b1924fc52d200c516b Jared Grippe <jared@deadlyicon.com> 1335324929 -0700	checkout: moving from ballz to integration_setup_hook_creates_untracked1
+7fb5825c2be45231cdff96b1924fc52d200c516b 6de51f394792768c1a0fe1383aa91bcedbf274a9 Jared Grippe <jared@deadlyicon.com> 1335324963 -0700	commit: removed what we didnt need from the setup hook
+6de51f394792768c1a0fe1383aa91bcedbf274a9 7a0e0aebb5452a9c7b814aeecbc12b1ab9ccdf0f Jared Grippe <jared@deadlyicon.com> 1335333251 -0700	commit (amend): removed what we didnt need from the hobson hooks
+7a0e0aebb5452a9c7b814aeecbc12b1ab9ccdf0f a719809eb3e8d3c6e1c310eca9921e7220ceda25 Jared Grippe <jared@deadlyicon.com> 1335333268 -0700	checkout: moving from integration_setup_hook_creates_untracked1 to integration_setup_hook_creates_untracked2
+a719809eb3e8d3c6e1c310eca9921e7220ceda25 1e5240e482fe7959dad5adbc49e6596ea21eea3e Jared Grippe <jared@deadlyicon.com> 1335333297 -0700	commit: removed what we didnt need from the setup hook
+1e5240e482fe7959dad5adbc49e6596ea21eea3e d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335334063 -0700	checkout: moving from integration_setup_hook_creates_untracked2 to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1335334106 -0700	checkout: moving from d6165a8f6387f14ec3a6fa2aa9dfac129072679b to testing_test_detection
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1335334118 -0700	slow_app_boot_specs_and_features: updating HEAD
+3dc35719edca885e5218c990077ac18fe2a566bf 3dc35719edca885e5218c990077ac18fe2a566bf Jared Grippe <jared@deadlyicon.com> 1335350930 -0700	checkout: moving from 3dc35719edca885e5218c990077ac18fe2a566bf to testing_improved_balancing
+3dc35719edca885e5218c990077ac18fe2a566bf 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1335352849 -0700	commit: version bump
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1336074713 -0700	checkout: moving from 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 to testing_killing_hung_test_executions
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 6bc1c97ecad05885930b1450c77541b4325bc738 Jared Grippe <jared@deadlyicon.com> 1336075317 -0700	commit: WIP
+6bc1c97ecad05885930b1450c77541b4325bc738 e68f8aabc49ccade8bece36815cb98bb76310204 Jared Grippe <jared@deadlyicon.com> 1336075771 -0700	commit: WIP
+e68f8aabc49ccade8bece36815cb98bb76310204 194f850e1a66645413ab51fe977965c045fb2e7c Jared Grippe <jared@deadlyicon.com> 1336075816 -0700	commit: WIP
+194f850e1a66645413ab51fe977965c045fb2e7c 9bab289d56d9bb38c052576d703d599116ffdef5 Jared Grippe <jared@deadlyicon.com> 1336076834 -0700	commit: WIP
+9bab289d56d9bb38c052576d703d599116ffdef5 6e9aab89abc933f2ffecf5c64dcc45948dfe98c1 Jared Grippe <jared@deadlyicon.com> 1336085005 -0700	commit: WIP
+6e9aab89abc933f2ffecf5c64dcc45948dfe98c1 44cf6ce852f0897f5f182bbb61c186bb267b8bc2 Jared Grippe <jared@deadlyicon.com> 1336085547 -0700	commit: WIP
+44cf6ce852f0897f5f182bbb61c186bb267b8bc2 2f7b35fb2699e09c1218e31e953e1b90a037d898 Jared Grippe <jared@deadlyicon.com> 1336085658 -0700	commit: WIP
+2f7b35fb2699e09c1218e31e953e1b90a037d898 b82a9c1786f4733b95ee026b86756a1966bf6b4b Jared Grippe <jared@deadlyicon.com> 1336086524 -0700	commit: WIP
+b82a9c1786f4733b95ee026b86756a1966bf6b4b 37619f650da03fa09a5450cf4ff6b7f93a12dd1b Jared Grippe <jared@deadlyicon.com> 1336086788 -0700	commit: WIP
+37619f650da03fa09a5450cf4ff6b7f93a12dd1b 1af0ea7635c975735d8b7f3e001a5c3dca2a76e5 Jared Grippe <jared@deadlyicon.com> 1336087681 -0700	commit: WIP
+1af0ea7635c975735d8b7f3e001a5c3dca2a76e5 58a1f50704b39a3804554402a67a2ec6d36ee96b Jared Grippe <jared@deadlyicon.com> 1336087859 -0700	commit: WIP
+58a1f50704b39a3804554402a67a2ec6d36ee96b 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1336171587 -0700	checkout: moving from testing_killing_hung_test_executions to testing_improved_balancing
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1336585020 -0700	checkout: moving from 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 to testing_missing_step_definition
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 b753e0c8389c4378e48151eaf7dff567da7b6b3f Jared Grippe <jared@deadlyicon.com> 1336586209 -0700	commit: added a feature with an undefined step definition to ensure its seen as a failure by hobson
+b753e0c8389c4378e48151eaf7dff567da7b6b3f 5ccbcce91fb76a6969ff80748195d02455ad6d0f Jared Grippe <jared@deadlyicon.com> 1336587295 -0700	commit (amend): added a feature with an undefined step definition to ensure its seen as a failure by hobson
+5ccbcce91fb76a6969ff80748195d02455ad6d0f a7491af4ab757c98d4bfd2bc8606e8fbb3993c2d Jared Grippe <jared@deadlyicon.com> 1336619944 -0700	commit: added more cases around scenarios and scenario outlines
+a7491af4ab757c98d4bfd2bc8606e8fbb3993c2d d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1337027070 -0700	checkout: moving from testing_missing_step_definition to master
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1337142642 -0700	checkout: moving from d6165a8f6387f14ec3a6fa2aa9dfac129072679b to testing_post_processing
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 32c2d365fa305d73bace701659ee08deae6a7a85 Jared Grippe <jared@deadlyicon.com> 1337144288 -0700	commit: added simplecov and a post process hook
+32c2d365fa305d73bace701659ee08deae6a7a85 62729899a82ee1528db5ff2869a7834a3cb9180a Jared Grippe <jared@deadlyicon.com> 1337144539 -0700	commit (amend): added simplecov and a post process hook
+62729899a82ee1528db5ff2869a7834a3cb9180a 6b1642ad6d506d5409cb3bb93f65e48304cc6711 Jared Grippe <jared@deadlyicon.com> 1337196655 -0700	commit: added simplecov reporting to the post process hook
+6b1642ad6d506d5409cb3bb93f65e48304cc6711 c0b65d628a771e249d063c54063e07db605ec34f Jared Grippe <jared@deadlyicon.com> 1337196892 -0700	commit (amend): added simplecov reporting to the post process hook
+c0b65d628a771e249d063c54063e07db605ec34f 8ddf9e20df5efa1925a59744fef8f2996cb54330 Jared Grippe <jared@deadlyicon.com> 1337197017 -0700	commit (amend): added simplecov reporting to the post process hook
+8ddf9e20df5efa1925a59744fef8f2996cb54330 84dd27bee622eff5c087f7d08ab69e371059c9c6 Jared Grippe <jared@deadlyicon.com> 1337197223 -0700	commit (amend): added simplecov reporting to the post process hook
+84dd27bee622eff5c087f7d08ab69e371059c9c6 ccbe26a8b73c8f80d0fea6ef61c0fe44ef0b85e0 Jared Grippe <jared@deadlyicon.com> 1337197442 -0700	commit (amend): added simplecov reporting to the post process hook
+ccbe26a8b73c8f80d0fea6ef61c0fe44ef0b85e0 1288788eb12a0e66eca396fafdc212702dfbb06d Jared Grippe <jared@deadlyicon.com> 1337197906 -0700	commit (amend): added simplecov reporting to the post process hook
+1288788eb12a0e66eca396fafdc212702dfbb06d 27ba21349388476a73f09490cbe110eae853c4e3 Jared Grippe <jared@deadlyicon.com> 1337198261 -0700	commit (amend): added simplecov reporting to the post process hook
+27ba21349388476a73f09490cbe110eae853c4e3 082bc604aaa09777f76ddc187bef1b8ba4dc0e30 Jared Grippe <jared@deadlyicon.com> 1337198661 -0700	commit (amend): added simplecov reporting to the post process hook
+082bc604aaa09777f76ddc187bef1b8ba4dc0e30 19cbaf755b5423f0eadf525fad0969a6ad1c8a34 Jared Grippe <jared@deadlyicon.com> 1337198946 -0700	commit (amend): added simplecov reporting to the post process hook
+19cbaf755b5423f0eadf525fad0969a6ad1c8a34 9a6b1cf0ab8f863d0423f295f27fd796ed446cd1 Jared Grippe <jared@deadlyicon.com> 1337199227 -0700	commit (amend): added simplecov reporting to the post process hook
+9a6b1cf0ab8f863d0423f295f27fd796ed446cd1 45dfbb65faa867dbf1f959606805fa3d44e963f6 Jared Grippe <jared@deadlyicon.com> 1337213308 -0700	commit (amend): added simplecov reporting to the post process hook
+45dfbb65faa867dbf1f959606805fa3d44e963f6 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1341731167 -0700	checkout: moving from testing_post_processing to testing_improved_balancing
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 f190280abdaf743d9d9f9d9e276a31c984faeedf Jared Grippe <jared@deadlyicon.com> 1341732247 -0700	commit: WIP
+f190280abdaf743d9d9f9d9e276a31c984faeedf f190280abdaf743d9d9f9d9e276a31c984faeedf Jared Grippe <jared@deadlyicon.com> 1341732259 -0700	checkout: moving from testing_improved_balancing to hobson2.0
+f190280abdaf743d9d9f9d9e276a31c984faeedf f13ff83dc78a7ea1fd4195f78b55ddf2dfbf9dc8 Jared Grippe <jared@deadlyicon.com> 1341732390 -0700	commit (amend): WIP
+f13ff83dc78a7ea1fd4195f78b55ddf2dfbf9dc8 59fbb40d7aeb99046229d086f6fe12ff890754d2 Jared Grippe <jared@deadlyicon.com> 1341732438 -0700	commit (amend): WIP
+59fbb40d7aeb99046229d086f6fe12ff890754d2 94fdb85dc80af8b131c0843f387c8ca62e16f2ca Jared Grippe <jared@deadlyicon.com> 1341732449 -0700	commit (amend): WIP
+94fdb85dc80af8b131c0843f387c8ca62e16f2ca 3035552c40c42fd149edb029ec9578601670940b Jared Grippe <jared@deadlyicon.com> 1341733516 -0700	commit: WIP

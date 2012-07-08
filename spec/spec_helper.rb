@@ -1,7 +1,7 @@
 
 HOBSON_ROOT = Pathname.new File.expand_path('../..', __FILE__)
 
-HOBSON_WORKSPACE_ROOT = HOBSON_ROOT+'tmp/worksapce'
+HOBSON_WORKSPACE_ROOT = HOBSON_ROOT+'tmp/workspace'
 
 HOBSON_ROOT.join('spec/support').children.each{ |support|
   require support.to_s

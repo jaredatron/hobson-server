@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 83d8d1284c0cfb7134e86a050eb497fa0c24fb08 Jared Grippe <jared@deadlyicon.com> 1336585020 -0700	branch: Created from HEAD
+83d8d1284c0cfb7134e86a050eb497fa0c24fb08 b753e0c8389c4378e48151eaf7dff567da7b6b3f Jared Grippe <jared@deadlyicon.com> 1336586209 -0700	commit: added a feature with an undefined step definition to ensure its seen as a failure by hobson
+b753e0c8389c4378e48151eaf7dff567da7b6b3f 5ccbcce91fb76a6969ff80748195d02455ad6d0f Jared Grippe <jared@deadlyicon.com> 1336587295 -0700	commit (amend): added a feature with an undefined step definition to ensure its seen as a failure by hobson
+5ccbcce91fb76a6969ff80748195d02455ad6d0f a7491af4ab757c98d4bfd2bc8606e8fbb3993c2d Jared Grippe <jared@deadlyicon.com> 1336619944 -0700	commit: added more cases around scenarios and scenario outlines

@@ -1,0 +1,14 @@
+PATH
+  remote: /Users/deadlyicon/Work/hobson
+  specs:
+    hobson (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hobson!

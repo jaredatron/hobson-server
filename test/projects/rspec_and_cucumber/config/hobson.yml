@@ -1,0 +1,9 @@
+---
+:redis:
+  :host: 127.0.0.1
+  :port: 6380
+:storage:
+  :provider: AWS
+  :aws_secret_access_key: INTENTIONALLY_LEFT_BLANK
+  :aws_access_key_id: INTENTIONALLY_LEFT_BLANK
+  :directory: BUCKET_NAME_HERE

@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'ohm', '>=1.0.2'
   gem.add_runtime_dependency 'activemodel'
   gem.add_runtime_dependency 'resque'
+  gem.add_runtime_dependency 'popen4'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'resque_unit'

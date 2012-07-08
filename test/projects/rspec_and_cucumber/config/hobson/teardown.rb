@@ -1,0 +1,3 @@
+puts "HOBSON TEARDOWN HOOK"
+sleep 4
+ENV['HOBSON_TEARDOWN_HOOK_RUN'] = "true"

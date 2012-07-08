@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 ce751a82b6a140a8b69d45409c9e3a21ef4c53af Jared Grippe <jared@deadlyicon.com> 1334011528 -0700	branch: Created from ce751a82b6a140a8b69d45409c9e3a21ef4c53af
+ce751a82b6a140a8b69d45409c9e3a21ef4c53af 8b591f8a4e44b870c45748c81141f562d60eceaa Jared Grippe <jared@deadlyicon.com> 1334012265 -0700	rebase finished: refs/heads/integration_setup_hook_creates_untracked2 onto d6165a8f6387f14ec3a6fa2aa9dfac129072679b
+8b591f8a4e44b870c45748c81141f562d60eceaa a719809eb3e8d3c6e1c310eca9921e7220ceda25 Jared Grippe <jared@deadlyicon.com> 1334012431 -0700	rebase finished: refs/heads/integration_setup_hook_creates_untracked2 onto 7fb5825c2be45231cdff96b1924fc52d200c516b
+a719809eb3e8d3c6e1c310eca9921e7220ceda25 1e5240e482fe7959dad5adbc49e6596ea21eea3e Jared Grippe <jared@deadlyicon.com> 1335333297 -0700	commit: removed what we didnt need from the setup hook

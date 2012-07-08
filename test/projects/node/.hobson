@@ -1,0 +1,2 @@
+list_tests: ./list_tests
+run_tests: ./run_tests

@@ -1,0 +1,2 @@
+list_tests: bundle exec hobson list
+run_tests: bundle exec hobson run

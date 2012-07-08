@@ -9,9 +9,16 @@ class Hobson::TestRun::Builder
   delegate :workspace, :to => Hobson
 
   def initialize test_run_id
-    @test_run = Hobson::TestRun[test_run_id]
+    test_run = Hobson::TestRun[test_run_id]
+    workspace = Hobson::Project::Workspace.new test_run.project
 
-    @workspace = Hobson::Project::Workspace.new @test_run.project
+    test_run.record_event :building!
+
+    workspace.checkout! test_run.sha
+
+
+    pp workspace.execute 'hobson list'
+
 
           # setup workspace
       # lookup testrun

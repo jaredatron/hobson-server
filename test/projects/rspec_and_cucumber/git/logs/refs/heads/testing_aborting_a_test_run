@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 d6165a8f6387f14ec3a6fa2aa9dfac129072679b Jared Grippe <jared@deadlyicon.com> 1334184831 -0700	branch: Created from HEAD
+d6165a8f6387f14ec3a6fa2aa9dfac129072679b 70639deb499bf0a7ff9c6d4fe94806e008929764 Jared Grippe <jared@deadlyicon.com> 1334187350 -0700	commit: added a number of specs and features with configurable runtimes and behaviors to aid intesting
+70639deb499bf0a7ff9c6d4fe94806e008929764 e6a40f0a967a50cd7942cf81904cc6464afe084a Jared Grippe <jared@deadlyicon.com> 1334187935 -0700	commit: slowed down all the tests significantly to help test the test run abortion process

@@ -5,11 +5,14 @@ class Hobson::TestRun < Hobson::Model
   attribute :sha
   attribute :created_at
 
-  reference :project, :Project
+  reference :project, :'Hobson::Project'
 
   collection :tests, :'Hobson::Project::Test'
   collection :jobs,  :Job
 
+  def validate
+    assert_present :project_id
+  end
 
   def schedule_build!
     Resque.enqueue Hobson::TestRun::Builder, id
