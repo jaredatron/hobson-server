@@ -3,10 +3,24 @@ require 'sinatra/namespace'
 require 'json'
 
 module Hobson
+  class Hobson::Server < Sinatra::Base
+  end
 end
 
 require 'hobson/model'
 require 'hobson/project'
+
+require 'hobson/server/controller'
+
+
+# require 'hobson/server/base'
+require 'hobson/server/projects'
+
+# Hobson::Server = Rack::URLMap.new(
+#   '/projects' => Hobson::Server::Projects.new,
+# )
+
+
 
 class Hobson::Server < Sinatra::Base
 
@@ -32,8 +46,10 @@ class Hobson::Server < Sinatra::Base
     logger.error env['sinatra.error'].inspect
   end
 
-  require 'hobson/server/projects'
-  class_eval(&Hobson::Server::Projects)
+  # require 'hobson/server/projects'
+  # class_eval(&Hobson::Server::Projects::PROC)
+
+  namespace '/projects', &Hobson::Server::Projects
 
 end
 
