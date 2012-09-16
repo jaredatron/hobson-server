@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'sinatra', require: nil
 gem 'json'
+gem 'ohm'
 
 group :development do
 
