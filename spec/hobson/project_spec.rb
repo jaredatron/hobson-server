@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Hobson::Project do
 
+  it_should_behave_like "a model"
+
   it "should work" do
     Hobson::Project.all.size.should == 0
     expected_project = Hobson::Project.create(origin: 'git://github.com/soveran/ohm.git')

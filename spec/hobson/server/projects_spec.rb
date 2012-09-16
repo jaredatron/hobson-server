@@ -31,12 +31,7 @@ describe '/projects' do
       end
       it "should return those 2 projects" do
         get!
-        JSON.parse(response.body).should == {
-          "projects" => [
-            {"id" => "1", "origin" => 'git://github.com/soveran/ohm.git'},
-            {"id" => "2", "origin" => 'git://github.com/rails/rails.git'},
-          ]
-        }
+        JSON.parse(response.body).should == {"projects" => projects}.as_json
       end
     end
 

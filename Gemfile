@@ -1,15 +1,14 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'sinatra', require: nil
-gem 'json'
+gem 'sinatra'
 gem 'ohm'
+gem 'activesupport'
 
 group :development do
 
   gem 'autotest-standalone'
   gem 'sinatra-reloader'
-
 
 end
 

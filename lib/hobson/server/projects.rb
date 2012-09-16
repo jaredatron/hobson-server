@@ -23,7 +23,6 @@ Hobson::Server::Projects = Hobson::Server::Controller.new do
     end
 
     # delete
-
     delete do
       if @project.nil?
         status 404

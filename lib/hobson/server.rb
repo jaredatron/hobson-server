@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/namespace'
-require 'json'
+require 'active_support/json'
 
 module Hobson
   class Hobson::Server < Sinatra::Base

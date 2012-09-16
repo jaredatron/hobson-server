@@ -7,7 +7,7 @@ Hobson::Model.redis = Redis.new(db: 8)
 
 require 'rack/test'
 
-ROOT.join('spec/support').children.each{ |support| require support.to_s }
+Dir[ROOT.join('spec/support/**/*.rb')].each{ |support| require support }
 
 RSpec.configure do |config|
 
