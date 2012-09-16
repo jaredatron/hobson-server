@@ -17,11 +17,18 @@ describe Hobson::Server do
   let(:origin){ 'git@github.com:deadlyicon/hobson-server.git' }
 
   def json
-    JSON.parse(response.body)
+    raise response.errors if response.errors != ""
+    response.body == '' ? nil : JSON.parse(response.body)
   end
 
   def uri
     "/projects/#{encode_origin(origin)}"
+  end
+
+  let!(:now){ Time.at(1347801214) }
+
+  before do
+    Time.should_receive(:now).any_number_of_times.and_return{ now }
   end
 
   it "should be able to support a full test run" do
@@ -30,6 +37,7 @@ describe Hobson::Server do
     json.should == {'projects' => []}
 
     post '/projects', {"project" => {"origin" => origin}}
+    json.should == nil
 
     get '/projects'
     json.should == {
@@ -73,11 +81,31 @@ describe Hobson::Server do
       }
     }
 
-    # get "/projects/#{encode_origin(origin)}/tets_runs"
-    # json.should == {
-    #   "test_runs" => []
-    # }
+    get "/projects/#{encode_origin(origin)}/test_runs"
+    json.should == {
+      "test_runs" => []
+    }
 
+    post "/projects/#{encode_origin(origin)}/test_runs", {
+      "test_run" => {
+        "sha"       => "c10cde0d30e79be5c3d427862e9a89852d4f8496",
+        "requestor" => "Jared Grippe",
+      }
+    }
+    json.should == nil
+
+    get "/projects/#{encode_origin(origin)}/test_runs"
+    json.should == {
+      "test_runs" => [
+        {
+          "project_id" => "1",
+          "id"         => "1",
+          "sha"        => "c10cde0d30e79be5c3d427862e9a89852d4f8496",
+          "requestor"  => "Jared Grippe",
+          "created_at" => now.to_s,
+        }
+      ]
+    }
 
 
   end

@@ -32,8 +32,9 @@ class Hobson::Server < Sinatra::Base
 
   register Sinatra::Namespace
 
-  set :logging, true
-  enable  :sessions, :logging
+  set :raise_errors, true
+  set :show_exceptions, true
+  enable :sessions, :logging
 
   before do
     env['rack.logger'] = Hobson::Server.logger
@@ -44,6 +45,7 @@ class Hobson::Server < Sinatra::Base
   error do
     puts env['sinatra.error'].inspect
     logger.error env['sinatra.error'].inspect
+    debugger;1
   end
 
   # require 'hobson/server/projects'

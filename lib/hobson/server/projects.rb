@@ -1,5 +1,4 @@
 Hobson::Server::Projects = Hobson::Server::Controller.new do
-# namespace '/projects' do
 
   # create
   post do
@@ -24,13 +23,11 @@ Hobson::Server::Projects = Hobson::Server::Controller.new do
     end
 
     require 'hobson/server/projects/tests'
-    # include Hobson::Server::Projects::Tests
     namespace '/tests', &Hobson::Server::Projects::Tests
 
+    require 'hobson/server/projects/test_runs'
+    namespace '/test_runs', &Hobson::Server::Projects::TestRuns
 
   end
 
 end
-
-# }
-# end

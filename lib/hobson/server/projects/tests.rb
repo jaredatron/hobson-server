@@ -6,7 +6,7 @@ Hobson::Server::Projects::Tests = Hobson::Server::Controller.new do
 
   post do
     params["test"]["project"] = @project
-    test = Hobson::Project::Test.create(params["test"])
+    Hobson::Project::Test.create(params["test"])
     return ""
   end
 

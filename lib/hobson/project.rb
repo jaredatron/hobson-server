@@ -1,11 +1,13 @@
 class Hobson::Project < Hobson::Model
 
   attribute :origin
-  require 'hobson/project/test'
-  collection :tests, :'::Hobson::Project::Test'
+
+  collection :tests,     :'::Hobson::Project::Test'
+  collection :test_runs, :'::Hobson::Project::TestRun'
 
   index :origin
 
 end
 
-
+require 'hobson/project/test'
+require 'hobson/project/test_run'
