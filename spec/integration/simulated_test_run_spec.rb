@@ -73,6 +73,11 @@ describe Hobson::Server do
       }
     }
 
+    # get "/projects/#{encode_origin(origin)}/tets_runs"
+    # json.should == {
+    #   "test_runs" => []
+    # }
+
 
 
   end
