@@ -5,6 +5,8 @@ $:.unshift File.expand_path('../../lib', __FILE__)
 require 'bundler'
 Bundler.setup
 
+require 'debugger'
+
 require 'hobson/server'
 Hobson::Model.redis = Redis.new
 
