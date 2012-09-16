@@ -22,6 +22,17 @@ Hobson::Server::Projects = Hobson::Server::Controller.new do
       @project.to_json
     end
 
+    # delete
+
+    delete do
+      if @project.nil?
+        status 404
+      else
+        @project.delete
+      end
+      return nil
+    end
+
     require 'hobson/server/projects/tests'
     namespace '/tests', &Hobson::Server::Projects::Tests
 

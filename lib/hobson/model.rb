@@ -14,7 +14,7 @@ class Hobson::Model < Ohm::Model
   end
 
   def to_json *args
-    attributes.merge(:id => id).to_json(*args)
+    attributes.merge(:id => @id).to_json(*args)
   end
 
   def new_record?

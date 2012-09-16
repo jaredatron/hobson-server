@@ -2,17 +2,7 @@ require 'spec_helper'
 
 describe Hobson::Server do
 
-  include Rack::Test::Methods
-
-  def app
-    Hobson::Server
-  end
-
-  alias_method :response, :last_response
-
-  def encode_origin origin
-    origin.gsub('/', '%2F')
-  end
+  include ServerSupport
 
   let(:origin){ 'git@github.com:deadlyicon/hobson-server.git' }
 
@@ -107,6 +97,15 @@ describe Hobson::Server do
       ]
     }
 
+
+    get "/projects/#{encode_origin(origin)}/test_runs/1"
+    json.should == {
+      "project_id" => "1",
+      "id"         => "1",
+      "sha"        => "c10cde0d30e79be5c3d427862e9a89852d4f8496",
+      "requestor"  => "Jared Grippe",
+      "created_at" => now.to_s,
+    }
 
   end
 

@@ -9,6 +9,8 @@ class Hobson::Project::TestRun < Hobson::Model
   collection :tests, :Test
   # collection :jobs,  :Job
 
+  index :id
+
   def created_at
     created_at = @attributes[:created_at]
     return nil if created_at.nil?
