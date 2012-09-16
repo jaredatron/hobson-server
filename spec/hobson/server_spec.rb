@@ -11,12 +11,31 @@ describe Hobson::Server do
   alias_method :response, :last_response
 
 
+  def encode_origin origin
+    origin.gsub('/', '%2F')
+  end
 
+  # create
+  describe "post /projects" do
+    context "when given a valid post body" do
+      it "should work" do
+        Hobson::Project.all.size.should == 0
+        post '/projects', {"project" => {"origin" => "fakeorigin"}}
+        response.should be_ok
+        response.body.should == ''
+        Hobson::Project.all.size.should == 1
+        Hobson::Project[1].origin.should == "fakeorigin"
+      end
+    end
 
+  end
+
+  # index
   describe "get /projects" do
 
     def get!
       get '/projects'
+      response.should be_ok
       response.headers["Content-Type"].should == 'application/json;charset=utf-8'
       response.body.should == {"projects" => projects.map(&:attributes)}.to_json
     end
@@ -41,6 +60,16 @@ describe Hobson::Server do
       end
     end
 
+  end
+
+  # read
+  describe "get /projects/:origin" do
+    it "should work" do
+      project = Hobson::Project.create(origin: 'git://github.com/rails/rails.git')
+      get "/projects/#{encode_origin(project.origin)}"
+      response.should be_ok
+      response.body.should == project.attributes.to_json
+    end
   end
 
 end
