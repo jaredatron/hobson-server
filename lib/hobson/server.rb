@@ -43,13 +43,34 @@ class Hobson::Server < Sinatra::Base
 
     # index
     get do
-      {projects: Hobson::Project.all.map(&:attributes)}.to_json
+      {projects: Hobson::Project.all.to_a}.to_json
     end
 
-    # read
-    get '/:origin' do
-      project = Hobson::Project.find(origin: params["origin"]).first
-      project.attributes.to_json
+    namespace '/:origin' do
+
+      before do
+        @project = Hobson::Project.find(origin: params["origin"]).first
+      end
+
+      # read
+      get do
+        @project.to_json
+      end
+
+      namespace '/tests' do
+
+        get do
+          {'tests' => @project.tests.to_a}.to_json
+        end
+
+        post do
+          params["test"]["project"] = @project
+          test = Hobson::Project::Test.create(params["test"])
+          return ""
+        end
+
+      end
+
     end
 
   end

@@ -13,4 +13,8 @@ class Hobson::Model < Ohm::Model
     Hobson::Model.redis
   end
 
+  def to_json *args
+    attributes.merge(:id => id).to_json(*args)
+  end
+
 end

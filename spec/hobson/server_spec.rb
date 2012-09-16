@@ -37,7 +37,6 @@ describe Hobson::Server do
       get '/projects'
       response.should be_ok
       response.headers["Content-Type"].should == 'application/json;charset=utf-8'
-      response.body.should == {"projects" => projects.map(&:attributes)}.to_json
     end
 
     context "when there are no projects" do
@@ -45,6 +44,7 @@ describe Hobson::Server do
 
       it "should return an empty set" do
         get!
+        JSON.parse(response.body).should == {"projects" => []}
       end
     end
 
@@ -57,6 +57,12 @@ describe Hobson::Server do
       end
       it "should return those 2 projects" do
         get!
+        JSON.parse(response.body).should == {
+          "projects" => [
+            {"id" => "1", "origin" => 'git://github.com/soveran/ohm.git'},
+            {"id" => "2", "origin" => 'git://github.com/rails/rails.git'},
+          ]
+        }
       end
     end
 
@@ -68,7 +74,10 @@ describe Hobson::Server do
       project = Hobson::Project.create(origin: 'git://github.com/rails/rails.git')
       get "/projects/#{encode_origin(project.origin)}"
       response.should be_ok
-      response.body.should == project.attributes.to_json
+      JSON.parse(response.body).should == {
+        "id" => "1",
+        "origin" => 'git://github.com/rails/rails.git',
+      }
     end
   end
 
