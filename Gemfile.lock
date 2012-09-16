@@ -61,6 +61,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest-standalone
   debugger
   rspec
   sinatra

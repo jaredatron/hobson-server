@@ -7,5 +7,6 @@ group :development, :test do
 
   gem 'debugger'
   gem 'rspec'
+  gem 'autotest-standalone'
 
 end
