@@ -17,21 +17,25 @@ describe Hobson::Server do
         get '/projects'
         response.headers["Content-Type"].should == 'application/json;charset=utf-8'
         json = JSON.parse response.body
-        json.should == {"projects" => []}
+        json.should == {
+          "projects" => []
+        }
       end
     end
   end
 
   context "when there are 2 projects" do
     before do
-      # Project.create()
+      @projects = [
+        Hobson::Project.create(origin: 'git://github.com/soveran/ohm.git'),
+        Hobson::Project.create(origin: 'git://github.com/rails/rails.git'),
+      ]
     end
     describe "get" do
       it "should return those 2 projects" do
         get '/projects'
         response.headers["Content-Type"].should == 'application/json;charset=utf-8'
-        json = JSON.parse response.body
-        json.should == {"projects" => []}
+        response.body.should == {"projects" => @projects.map(&:attributes)}.to_json
       end
     end
   end

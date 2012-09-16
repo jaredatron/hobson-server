@@ -13,11 +13,7 @@ class Hobson::Server < Sinatra::Base
 
   get '/projects' do
     content_type :json
-    {
-      projects: [
-
-      ]
-    }.to_json
+    {projects: Hobson::Project.all.map(&:attributes)}.to_json
   end
 
 
