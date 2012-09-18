@@ -35,28 +35,6 @@ class Hobson::Server < Sinatra::Base
     logger.error env['sinatra.error'].inspect
   end
 
-  helpers do
-
-    def path_to_url path
-      url = URI.parse(request.url)
-      url.path = path
-      url.to_s
-    end
-
-    def encode string
-      URI.encode(string).gsub('/', '%2F')
-    end
-
-    def project_url project
-      path_to_url "/projects/#{encode project.origin}"
-    end
-
-    def test_run_url test_run
-      path_to_url "/test_runs/#{test_run.id}"
-    end
-
-  end
-
 end
 
 require 'hobson/server/projects'

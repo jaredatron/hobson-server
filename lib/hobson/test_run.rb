@@ -28,13 +28,14 @@ class Hobson::TestRun < Hobson::Model
 
   def as_json options=nil
     {
-      'id'         => @id,
-      'project_origin'    => project_origin,
-      'sha'        => sha,
-      'requestor'  => requestor,
-      'created_at' => created_at,
-      'tests'      => tests.to_a,
-      'jobs'       => jobs.to_a,
+      'id'             => @id,
+      'path'           => "/test_runs/#{id}",
+      'project_origin' => project_origin,
+      'sha'            => sha,
+      'requestor'      => requestor,
+      'created_at'     => created_at,
+      'tests'          => tests.to_a,
+      'jobs'           => jobs.to_a,
     }
   end
 

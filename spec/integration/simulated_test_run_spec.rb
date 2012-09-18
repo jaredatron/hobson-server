@@ -22,13 +22,14 @@ describe Hobson::Server do
     }
     response_data.should == j({
       "test_run" => {
-        "id"         => "1",
-        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
-        "sha"        => "12321321321321",
-        "requestor"  => "Jared Grippe",
-        "created_at" => now,
-        "tests"      => [],
-        "jobs"       => [],
+        "path"           => "/test_runs/1",
+        "id"             => "1",
+        "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
+        "sha"            => "12321321321321",
+        "requestor"      => "Jared Grippe",
+        "created_at"     => now,
+        "tests"          => [],
+        "jobs"           => [],
       }
     })
 
@@ -36,11 +37,11 @@ describe Hobson::Server do
     get "/test_runs/1"
     response_data.should == j({
       "test_run" => {
+        "path"           => "/test_runs/1",
         "id"             => "1",
         "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
         "sha"            => "12321321321321",
         "requestor"      => "Jared Grippe",
-        "url"            => "http://example.org/test_runs/1",
         "created_at"     => now,
         "tests"          => [],
         "jobs"           => [],
@@ -51,7 +52,10 @@ describe Hobson::Server do
     get "/projects"
     response_data.should == j({
       "projects" => [
-        {"origin" => "git@github.com:deadlyicon/hobson-server.git"}
+        {
+          "origin" => "git@github.com:deadlyicon/hobson-server.git",
+          "path"   => "/projects/git@github.com:deadlyicon%2Fhobson-server.git",
+        }
       ]
     })
 
@@ -60,7 +64,7 @@ describe Hobson::Server do
     response_data.should == j({
       "project" => {
         "origin" => "git@github.com:deadlyicon/hobson-server.git",
-        "url"    => "http://example.org/projects/git@github.com:deadlyicon%2Fhobson-server.git",
+        "path"   => "/projects/git@github.com:deadlyicon%2Fhobson-server.git",
       }
     })
 
@@ -88,11 +92,11 @@ describe Hobson::Server do
     get "/test_runs/1"
     response_data.should == j({
       "test_run" => {
+        "path"           => "/test_runs/1",
         "id"             => "1",
         "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
         "sha"            => "12321321321321",
         "requestor"      => "Jared Grippe",
-        "url"            => "http://example.org/test_runs/1",
         "created_at"     => now,
         "jobs" => [
           {

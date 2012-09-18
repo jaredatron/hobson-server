@@ -51,13 +51,14 @@ describe '/test_runs' do
         response.should be_ok
         JSON.parse(response.body).should == j({
           "test_run" => {
-            'id' => "1",
+            'id'             => "1",
+            'path'           => "/test_runs/1",
             'project_origin' => 'fake origin',
-            'sha' => 'abcd',
-            'requestor' => 'your mom',
-            'created_at' => now,
-            'tests' => [],
-            'jobs' => [],
+            'sha'            => 'abcd',
+            'requestor'      => 'your mom',
+            'created_at'     => now,
+            'tests'          => [],
+            'jobs'           => [],
           }
         })
         Hobson::TestRun.all.size.should == 1

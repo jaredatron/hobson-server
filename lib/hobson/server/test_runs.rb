@@ -30,9 +30,7 @@ class Hobson::Server
           status 404
           return nil
         end
-        test_run = @test_run.as_json
-        test_run['url'] = test_run_url(@test_run)
-        {'test_run' => test_run}.to_json
+        {'test_run' => @test_run}.to_json
       end
 
       # update

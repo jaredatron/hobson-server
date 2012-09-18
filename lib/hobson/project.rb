@@ -13,7 +13,8 @@ class Hobson::Project < Hobson::Model
 
   def as_json options=nil
     {
-      'origin' => origin
+      'origin' => origin,
+      'path'   => "/projects/#{URI.encode(origin).gsub('/','%2F')}",
     }
   end
 
