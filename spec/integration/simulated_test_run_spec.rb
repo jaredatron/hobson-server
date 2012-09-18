@@ -86,6 +86,10 @@ describe Hobson::Server do
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,
+        "jobs" => [
+          {"index"=>"0"},
+          {"index"=>"1"},
+        ],
         "tests" => [
           {
             "uuid"         => "spec:models/user_spec.rb",
@@ -116,10 +120,6 @@ describe Hobson::Server do
             "result"       => nil,
             "tries"        => nil,
           },
-        ],
-        "jobs" => [
-          {"index"=>"0"},
-          {"index"=>"1"},
         ]
       }
     })
