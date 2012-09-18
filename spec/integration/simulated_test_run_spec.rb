@@ -19,8 +19,9 @@ describe Hobson::Server do
   it "should be able to support a full test run" do
 
     # create test run (and project)
-    post "/projects/#{e origin}/test_runs", {
+    post "/test_runs", {
       "test_run" => {
+        "project" => "git@github.com:deadlyicon/hobson-server.git",
         "sha" => "12321321321321",
         "requestor" => "Jared Grippe",
       }
@@ -29,7 +30,21 @@ describe Hobson::Server do
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
-        "project_id" => "1",
+        "project"    => "git@github.com:deadlyicon/hobson-server.git",
+        "sha"        => "12321321321321",
+        "requestor"  => "Jared Grippe",
+        "created_at" => now,
+        "tests"      => [],
+      }
+    })
+
+    get "/test_runs/1"
+
+    response.status.should == 200
+    response_data.should == j({
+      "test_run" => {
+        "id"         => "1",
+        "project"    => "git@github.com:deadlyicon/hobson-server.git",
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,
@@ -39,7 +54,7 @@ describe Hobson::Server do
 
 
     # build test run
-    put "/projects/#{e origin}/test_runs/1", {
+    put "/test_runs/1", {
       "test_run" => {
         "tests" => [
           { "type" => "spec", "name" => "models/user_spec.rb" },
@@ -55,13 +70,13 @@ describe Hobson::Server do
 
     # execute test run
 
-    get "/projects/#{e origin}/test_runs/1"
+    get "/test_runs/1"
 
     response.status.should == 200
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
-        "project_id" => "1",
+        "project"    => "git@github.com:deadlyicon/hobson-server.git",
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,

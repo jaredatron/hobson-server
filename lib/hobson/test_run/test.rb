@@ -1,6 +1,6 @@
-class Hobson::Project::TestRun::Test < Hobson::Model
+class Hobson::TestRun::Test < Hobson::Model
 
-  reference :test_run, :'Hobson::Project::TestRun'
+  reference :test_run, :'Hobson::TestRun'
 
   attribute :uuid       # "#{type}:#{name}"
   attribute :runtime

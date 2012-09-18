@@ -14,4 +14,4 @@ class Hobson::Project < Hobson::Model
 end
 
 require 'hobson/project/test'
-require 'hobson/project/test_run'
+# require 'hobson/project/test_run'

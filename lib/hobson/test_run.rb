@@ -1,15 +1,15 @@
-class Hobson::Project::TestRun < Hobson::Model
+class Hobson::TestRun < Hobson::Model
 
-  reference :project, :'Hobson::Project'
-
+  attribute :project
   attribute :sha
   attribute :requestor
   attribute :created_at
 
-  collection :tests, :'Hobson::Project::TestRun::Test'
+  collection :tests, :'Hobson::TestRun::Test'
   # collection :jobs,  :Job
 
   index :id
+  index :project
 
   def created_at
     created_at = @attributes[:created_at]
@@ -20,6 +20,7 @@ class Hobson::Project::TestRun < Hobson::Model
 
   def validate
     self.created_at = Time.now if new_record?
+    assert_present :project
     assert_present :sha
     assert_present :requestor
     assert_present :created_at
@@ -33,7 +34,7 @@ class Hobson::Project::TestRun < Hobson::Model
     tests.each do |data|
       data['uuid'] = "#{data.delete('type')}:#{data.delete('name')}"
       test = self.tests.find(uuid:data['uuid']).first
-      test ||= Hobson::Project::TestRun::Test.new(test_run:self)
+      test ||= Hobson::TestRun::Test.new(test_run:self)
       test.update(data)
       test.save
     end
@@ -41,4 +42,4 @@ class Hobson::Project::TestRun < Hobson::Model
 
 end
 
-require 'hobson/project/test_run/test'
+require 'hobson/test_run/test'
