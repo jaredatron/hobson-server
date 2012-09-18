@@ -1,44 +1,45 @@
-Hobson::Server::Projects = Hobson::Server::Controller.new do
+class Hobson::Server
 
-  # create
-  post do
-    Hobson::Project.create(params["project"])
-    return ""
-  end
+  namespace '/projects' do
 
-  # index
-  get do
-    {projects: Hobson::Project.all.to_a}.to_json
-  end
-
-  namespace '/:origin' do
-
-    before do
-      @project = Hobson::Project.find(origin: params["origin"]).first
-      @project ||= Hobson::Project.create!(origin: params["origin"])
-    end
-
-    # read
+    # index
     get do
-      @project.to_json
+      {
+        projects: Hobson::TestRun.all.map(&:project).uniq.map{|origin|
+          {origin: origin}
+        }
+      }.to_json
     end
 
-    # delete
-    delete do
-      if @project.nil?
-        status 404
-      else
-        @project.delete
-      end
-      return nil
-    end
+    # namespace '/:origin' do
 
-    require 'hobson/server/projects/tests'
-    namespace '/tests', &Hobson::Server::Projects::Tests
+    #   before do
+    #     @project = Hobson::Project.find(origin: params["origin"]).first
+    #     @project ||= Hobson::Project.create!(origin: params["origin"])
+    #   end
 
-    require 'hobson/server/projects/test_runs'
-    namespace '/test_runs', &Hobson::Server::Projects::TestRuns
+    #   # read
+    #   get do
+    #     @project.to_json
+    #   end
+
+    #   # delete
+    #   delete do
+    #     if @project.nil?
+    #       status 404
+    #     else
+    #       @project.delete
+    #     end
+    #     return nil
+    #   end
+
+    #   require 'hobson/server/projects/tests'
+    #   namespace '/tests', &Hobson::Server::Projects::Tests
+
+    #   require 'hobson/server/projects/test_runs'
+    #   namespace '/test_runs', &Hobson::Server::Projects::TestRuns
+
+    # end
 
   end
-
 end

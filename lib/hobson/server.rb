@@ -12,10 +12,10 @@ require 'hobson/model'
 require 'hobson/project'
 require 'hobson/test_run'
 
-require 'hobson/server/controller'
+# require 'hobson/server/controller'
 
-require 'hobson/server/projects'
-require 'hobson/server/test_runs'
+# require 'hobson/server/projects'
+# require 'hobson/server/test_runs'
 
 
 class Hobson::Server < Sinatra::Base
@@ -43,25 +43,8 @@ class Hobson::Server < Sinatra::Base
     logger.error env['sinatra.error'].inspect
   end
 
-  namespace '/projects',  &Hobson::Server::Projects
-  namespace '/test_runs', &Hobson::Server::TestRuns
-
-  def self.resource name, &block
-
-    # INDEX
-
-    # CREATE
-
-    # READ
-
-    # UPDATE
-
-    # DELETE
-
-  end
-
-  resource :projects do
-
-  end
-
 end
+
+require 'hobson/server/projects'
+require 'hobson/server/test_runs'
+

@@ -26,7 +26,6 @@ describe Hobson::Server do
         "requestor" => "Jared Grippe",
       }
     }
-
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
@@ -39,9 +38,8 @@ describe Hobson::Server do
       }
     })
 
+    # read test run
     get "/test_runs/1"
-
-    response.status.should == 200
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
@@ -54,6 +52,13 @@ describe Hobson::Server do
       }
     })
 
+    # list projects
+    get "/projects"
+    response_data.should == j({
+      "projects" => [
+        {"origin" => "git@github.com:deadlyicon/hobson-server.git"}
+      ]
+    })
 
     # build test run
     put "/test_runs/1", {
