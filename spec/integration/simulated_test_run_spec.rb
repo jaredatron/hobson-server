@@ -35,6 +35,7 @@ describe Hobson::Server do
         "requestor"  => "Jared Grippe",
         "created_at" => now,
         "tests"      => [],
+        "jobs"       => [],
       }
     })
 
@@ -49,6 +50,7 @@ describe Hobson::Server do
         "requestor"  => "Jared Grippe",
         "created_at" => now,
         "tests"      => [],
+        "jobs"       => [],
       }
     })
 
@@ -57,15 +59,15 @@ describe Hobson::Server do
     put "/test_runs/1", {
       "test_run" => {
         "tests" => [
-          { "uuid" => "spec:models/user_spec.rb" },
-          { "uuid" => "spec:models/post_spec.rb" },
-          { "uuid" => "scenario:I should be able to see my first post" },
-          { "uuid" => "scenario:I should be able to delete my first post" },
+          { "job_index" => "0", "uuid" => "spec:models/user_spec.rb" },
+          { "job_index" => "0", "uuid" => "spec:models/post_spec.rb" },
+          { "job_index" => "1", "uuid" => "scenario:I should be able to see my first post" },
+          { "job_index" => "1", "uuid" => "scenario:I should be able to delete my first post" },
         ]
       }
     }
 
-    response.should be_ok
+    # response.status.should == 200
     response.body.should == ''
 
     # execute test run
@@ -82,30 +84,38 @@ describe Hobson::Server do
         "created_at" => now,
         "tests" => [
           {
-            "uuid"    => "spec:models/user_spec.rb",
-            "started_at" => nil,
+            "uuid"         => "spec:models/user_spec.rb",
+            "job_index"    => "0",
+            "started_at"   => nil,
             "completed_at" => nil,
-            "result"  => nil,
-            "tries"   => nil,
+            "result"       => nil,
+            "tries"        => nil,
           },{
-            "uuid"    => "spec:models/post_spec.rb",
-            "started_at" => nil,
+            "uuid"         => "spec:models/post_spec.rb",
+            "job_index"    => "0",
+            "started_at"   => nil,
             "completed_at" => nil,
-            "result"  => nil,
-            "tries"   => nil,
+            "result"       => nil,
+            "tries"        => nil,
           },{
-            "uuid"    => "scenario:I should be able to see my first post",
-            "started_at" => nil,
+            "uuid"         => "scenario:I should be able to see my first post",
+            "job_index"    => "1",
+            "started_at"   => nil,
             "completed_at" => nil,
-            "result"  => nil,
-            "tries"   => nil,
+            "result"       => nil,
+            "tries"        => nil,
           },{
-            "uuid"    => "scenario:I should be able to delete my first post",
-            "started_at" => nil,
+            "uuid"         => "scenario:I should be able to delete my first post",
+            "job_index"    => "1",
+            "started_at"   => nil,
             "completed_at" => nil,
-            "result"  => nil,
-            "tries"   => nil,
+            "result"       => nil,
+            "tries"        => nil,
           },
+        ],
+        "jobs" => [
+          {"index"=>"0"},
+          {"index"=>"1"},
         ]
       }
     })
@@ -126,6 +136,7 @@ describe Hobson::Server do
     get "/test_runs/1"
     response_data["test_run"]["tests"][0].should == j({
       "uuid"         => "spec:models/user_spec.rb",
+      "job_index"    => "0",
       "started_at"   => "2012-09-17 18:13:02 -0700",
       "completed_at" => nil,
       "result"       => nil,
@@ -150,6 +161,7 @@ describe Hobson::Server do
     get "/test_runs/1"
     response_data["test_run"]["tests"][0].should == j({
       "uuid"         => "spec:models/user_spec.rb",
+      "job_index"    => "0",
       "started_at"   => "2012-09-17 18:13:02 -0700",
       "completed_at" => "2012-09-17 18:13:04 -0700",
       "result"       => 'PASS',

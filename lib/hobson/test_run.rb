@@ -6,7 +6,7 @@ class Hobson::TestRun < Hobson::Model
   attribute :created_at
 
   collection :tests, :'Hobson::TestRun::Test'
-  # collection :jobs,  :Job
+  collection :jobs,  :'Hobson::TestRun::Job'
 
   index :id
   index :project
@@ -30,15 +30,31 @@ class Hobson::TestRun < Hobson::Model
     super(options).merge(:tests => tests.to_a.as_json)
   end
 
+
+  def as_json options=nil
+    {
+      'id'         => @id,
+      'project'    => project,
+      'sha'        => sha,
+      'requestor'  => requestor,
+      'created_at' => created_at,
+      'tests'      => tests.to_a,
+      'jobs'       => jobs.to_a,
+    }
+  end
+
   def tests= tests
     tests.each do |data|
       test = self.tests.find(uuid:data['uuid']).first
       test ||= Hobson::TestRun::Test.new(test_run:self)
       test.update(data)
       test.save
+
+      test.job
     end
   end
 
 end
 
 require 'hobson/test_run/test'
+require 'hobson/test_run/job'
