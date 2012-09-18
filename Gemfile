@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'sinatra-partial'
 gem 'ohm'
+gem 'resque'
 gem 'activesupport'
 gem 'haml'
 
