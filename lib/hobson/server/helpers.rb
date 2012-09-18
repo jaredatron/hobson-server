@@ -10,7 +10,9 @@ module Hobson::Server::Helpers
   end
 
   def project_origin project
-    project.is_a?(String) ? project : project['project_origin'] || project['origin']
+    return project.project_origin if project.respond_to?(:project_origin)
+    return project.origin if project.respond_to?(:origin)
+    return project
   end
 
 

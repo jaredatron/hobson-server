@@ -13,7 +13,8 @@ module Hobson::Server::Helpers
   end
 
   def test_run
-    @test_run ||= Hobson::TestRun.find(id: params[:test_run_id]).first or raise Sinatra::NotFound
+    @test_run ||= Hobson::Server::Presenters::TestRun[params[:test_run_id]]
+    # raise @test_run.inspect
   end
 
   def project_tests
@@ -22,10 +23,6 @@ module Hobson::Server::Helpers
 
   def project_test_runs
     @project_test_runs ||= project.test_runs.to_a
-  end
-
-  def test_type_and_name test
-    test['uuid'].match(/^([^:]+):(.+)$/).to_a.last(2)
   end
 
 end

@@ -1,22 +1,21 @@
-
-%h1 Test Run #{test_run['id']}
+%h1 Test Run #{test_run.id}
 
 %dl.details
   %dt Project
   %dd
-    %a{:href => project_path(test_run)}= test_run['project_origin']
+    %a{:href => project_path(test_run)}= test_run.project_origin
 
   %dt SHA
   %dd
     - test_run_sha_link(test_run)
 
   %dt Requestor
-  %dd= test_run['requestor']
+  %dd= test_run.requestor
 
 
 %h2 Jobs
 %ol.jobs
-  - test_run['jobs'].each do |job|
+  - test_run.jobs.each do |job|
     %li
       = job['index']
       %ol.events
@@ -37,24 +36,23 @@
       %th Result
       %th Logs
   %tbody
-    - test_run['tests'].each do |test|
-      - type, name = test_type_and_name(test)
+    - test_run.tests.each do |test|
       %tr
         %td
-          = test['job_index']
+          = test.job_index
         %td
-          = type
+          = test.type
         %td
-          = name
+          = test.name
         %td
-          = test['tries']
+          = test.tries
         %td
-          = test['est_runtime']
+          = test.est_runtime
         %td
-          = test['runtime']
+          = test.runtime
         %td
-          = test_run_test_status(test)
+          = test.status
         %td
-          = test['result']
+          = test.result
         %td
 

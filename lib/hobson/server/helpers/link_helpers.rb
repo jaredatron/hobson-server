@@ -6,8 +6,8 @@ module Hobson::Server::Helpers
   end
 
   def test_run_sha_link test_run
-    url = "#{project_origin_url(test_run['project_origin'])}/commit/#{test_run['sha']}"
-    link_to(test_run['sha'], url)
+    url = "#{project_origin_url(test_run.project_origin)}/commit/#{test_run.sha}"
+    link_to(test_run.sha, url)
   end
 
   def project_origin_link origin
