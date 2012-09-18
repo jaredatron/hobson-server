@@ -53,6 +53,8 @@ describe Hobson::Server do
     response.should be_ok
     response.body.should == ''
 
+    # execute test run
+
     get "/projects/#{e origin}/test_runs/1"
 
     response.status.should == 200
@@ -71,6 +73,12 @@ describe Hobson::Server do
         ]
       }
     })
+
+    put "/projects/#{e origin}/test_runs/1/tests/1", {
+      "test" => {
+        "started_at" => "2012-09-17 18:13:02 -0700",
+      }
+    }
 
     # simulate requesting a test run
 

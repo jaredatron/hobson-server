@@ -2,7 +2,10 @@ class Hobson::Project::TestRun::Test < Hobson::Model
 
   reference :test_run, :'Hobson::Project::TestRun'
 
-  attribute :uuid # "#{type}:#{name}"
+  attribute :uuid       # "#{type}:#{name}"
+  attribute :runtime
+  attribute :result
+  attribute :tries
 
   index :uuid
 
