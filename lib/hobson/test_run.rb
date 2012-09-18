@@ -32,7 +32,6 @@ class Hobson::TestRun < Hobson::Model
 
   def tests= tests
     tests.each do |data|
-      data['uuid'] = "#{data.delete('type')}:#{data.delete('name')}"
       test = self.tests.find(uuid:data['uuid']).first
       test ||= Hobson::TestRun::Test.new(test_run:self)
       test.update(data)

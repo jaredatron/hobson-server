@@ -3,7 +3,8 @@ class Hobson::TestRun::Test < Hobson::Model
   reference :test_run, :'Hobson::TestRun'
 
   attribute :uuid       # "#{type}:#{name}"
-  attribute :runtime
+  attribute :started_at
+  attribute :completed_at
   attribute :result
   attribute :tries
 
@@ -15,16 +16,12 @@ class Hobson::TestRun::Test < Hobson::Model
 
   def as_json options=nil
     {
-      'uuid'    => self.uuid,
-      'runtime' => self.runtime,
-      'result'  => self.result,
-      'tries'   => self.tries,
+      'uuid'         => self.uuid,
+      'started_at'   => self.started_at,
+      'completed_at' => self.completed_at,
+      'result'       => self.result,
+      'tries'        => self.tries,
     }
-    # json = super(options)
-    # json.delete('uuid')
-    # json['type'] = self.type
-    # json['name'] = self.name
-    # json
   end
 
 end

@@ -31,6 +31,7 @@ Hobson::Server::TestRuns = Hobson::Server::Controller.new do
       {'test_run' => @test_run}.to_json
     end
 
+    # update
     put do
       @test_run.update(params["test_run"])
       if @test_run.save

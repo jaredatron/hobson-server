@@ -57,10 +57,10 @@ describe Hobson::Server do
     put "/test_runs/1", {
       "test_run" => {
         "tests" => [
-          { "type" => "spec", "name" => "models/user_spec.rb" },
-          { "type" => "spec", "name" => "models/post_spec.rb" },
-          { "type" => "scenario", "name" => "I should be able to see my first post" },
-          { "type" => "scenario", "name" => "I should be able to delete my first post" },
+          { "uuid" => "spec:models/user_spec.rb" },
+          { "uuid" => "spec:models/post_spec.rb" },
+          { "uuid" => "scenario:I should be able to see my first post" },
+          { "uuid" => "scenario:I should be able to delete my first post" },
         ]
       }
     }
@@ -83,34 +83,78 @@ describe Hobson::Server do
         "tests" => [
           {
             "uuid"    => "spec:models/user_spec.rb",
-            "runtime" => nil,
+            "started_at" => nil,
+            "completed_at" => nil,
             "result"  => nil,
             "tries"   => nil,
           },{
             "uuid"    => "spec:models/post_spec.rb",
-            "runtime" => nil,
+            "started_at" => nil,
+            "completed_at" => nil,
             "result"  => nil,
             "tries"   => nil,
           },{
             "uuid"    => "scenario:I should be able to see my first post",
-            "runtime" => nil,
+            "started_at" => nil,
+            "completed_at" => nil,
             "result"  => nil,
             "tries"   => nil,
           },{
             "uuid"    => "scenario:I should be able to delete my first post",
-            "runtime" => nil,
+            "started_at" => nil,
+            "completed_at" => nil,
             "result"  => nil,
             "tries"   => nil,
-          },]
+          },
+        ]
       }
     })
 
     # started a test
-    put "/projects/#{e origin}/test_runs/1/tests/#{e 'spec:models/user_spec.rb'}", {
-      "test" => {
-        "started_at" => "2012-09-17 18:13:02 -0700",
+    put "/test_runs/1", {
+      "test_run" => {
+        "tests" => [
+          {
+            "uuid" => "spec:models/user_spec.rb",
+            "started_at" => "2012-09-17 18:13:02 -0700"
+          },
+        ]
       }
     }
+    response.status.should == 200
+
+    get "/test_runs/1"
+    response_data["test_run"]["tests"][0].should == j({
+      "uuid"         => "spec:models/user_spec.rb",
+      "started_at"   => "2012-09-17 18:13:02 -0700",
+      "completed_at" => nil,
+      "result"       => nil,
+      "tries"        => nil,
+    })
+
+    put "/test_runs/1", {
+      "test_run" => {
+        "tests" => [
+          {
+            "uuid" => "spec:models/user_spec.rb",
+            "completed_at" => "2012-09-17 18:13:04 -0700",
+            "result" => 'PASS',
+            "tries" => "1",
+          },
+        ]
+      }
+    }
+    response.status.should == 200
+
+
+    get "/test_runs/1"
+    response_data["test_run"]["tests"][0].should == j({
+      "uuid"         => "spec:models/user_spec.rb",
+      "started_at"   => "2012-09-17 18:13:02 -0700",
+      "completed_at" => "2012-09-17 18:13:04 -0700",
+      "result"       => 'PASS',
+      "tries"        => "1",
+    })
 
     # simulate requesting a test run
 
