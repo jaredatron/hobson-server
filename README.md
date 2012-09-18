@@ -1,5 +1,13 @@
 
 
+    project = Hobson::Project.create(origin: 'git@github.com/rails/rails')
+    test_run = Hobson::Project::TestRun.create(project:project, sha:'a', requestor:'me')
+    test = Hobson::Project::TestRun::Test.create(test_run:test_run)
+
+
+File.open('/tmp/error.html','w'){|f| f.write(response.body) }; `open /tmp/error.html `
+
+
 /projects
 /projects/git@github.com%2Frails%2Frails
 /projects/git@github.com%2Frails%2Frails/tests
@@ -62,3 +70,5 @@ execute test run
 
 
   PUT /projects/git@github.com%2Frails%2Frails/test_runs
+
+

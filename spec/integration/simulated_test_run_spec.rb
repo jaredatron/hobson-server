@@ -18,17 +18,59 @@ describe Hobson::Server do
 
   it "should be able to support a full test run" do
 
-    test_run = create_test_run!
+    # create test run (and project)
+    post "/projects/#{e origin}/test_runs", {
+      "test_run" => {
+        "sha" => "12321321321321",
+        "requestor" => "Jared Grippe",
+      }
+    }
 
-    test_run.should == j({
-      "id"         => "1",
-      "project_id" => "1",
-      "sha"        => "12321321321321",
-      "requestor"  => "Jared Grippe",
-      "created_at" => now,
-      "tests"      => [],
+    response_data.should == j({
+      "test_run" => {
+        "id"         => "1",
+        "project_id" => "1",
+        "sha"        => "12321321321321",
+        "requestor"  => "Jared Grippe",
+        "created_at" => now,
+        "tests"      => [],
+      }
     })
 
+
+    # build test run
+    put "/projects/#{e origin}/test_runs/1", {
+      "test_run" => {
+        "tests" => [
+          { "type" => "spec", "name" => "models/user_spec.rb" },
+          { "type" => "spec", "name" => "models/post_spec.rb" },
+          { "type" => "scenario", "name" => "I should be able to see my first post" },
+          { "type" => "scenario", "name" => "I should be able to delete my first post" },
+        ]
+      }
+    }
+
+    response.should be_ok
+    response.body.should == ''
+
+    get "/projects/#{e origin}/test_runs/1"
+
+    response.status.should == 200
+    response_data.should == j({
+      "test_run" => {
+        "id"         => "1",
+        "project_id" => "1",
+        "sha"        => "12321321321321",
+        "requestor"  => "Jared Grippe",
+        "created_at" => now,
+        "tests" => [
+          {"id" => "1", "test_run_id" => "1", "type" => "spec", "name" => "models/user_spec.rb" },
+          {"id" => "2", "test_run_id" => "1", "type" => "spec", "name" => "models/post_spec.rb" },
+          {"id" => "3", "test_run_id" => "1", "type" => "scenario", "name" => "I should be able to see my first post" },
+          {"id" => "4", "test_run_id" => "1", "type" => "scenario", "name" => "I should be able to delete my first post" },
+        ]
+      }
+    })
 
     # simulate requesting a test run
 
@@ -50,13 +92,8 @@ describe Hobson::Server do
   end
 
   def create_test_run!
-    post "/projects/#{e origin}/test_runs", {
-      "test_run" => {
-        "sha" => "12321321321321",
-        "requestor" => "Jared Grippe",
-      }
-    }
-    response_data
+
+
   end
 
   def read_test_run!

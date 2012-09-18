@@ -11,33 +11,45 @@ Hobson::Server::Projects::TestRuns = Hobson::Server::Controller.new do
     params["test_run"]["project"] = @project
     test_run = Hobson::Project::TestRun.new(params["test_run"])
     if test_run.save
-      # debugger;1
-      test_run.to_json
+      {'test_run' => test_run}.to_json
     else
       status 406
       {'errors' => test_run.errors}.to_json
     end
   end
 
-  # read
-  get '/:id' do
-    test_run = Hobson::Project::TestRun.find(id: params[:id]).first
-    if test_run.nil?
-      status 404
+  namespace '/:id' do
+
+    before do
+      @test_run = Hobson::Project::TestRun.find(id: params[:id]).first
+    end
+
+    # read
+    get do
+      if @test_run.nil?
+        status 404
+        return nil
+      end
+      {'test_run' => @test_run}.to_json
+    end
+
+    put do
+      @test_run.update(params["test_run"])
+      if @test_run.save
+        status 200
+        ""
+      else
+        status 406
+        {'errors' => @test_run.errors}.to_json
+      end
+    end
+
+    # delete
+    delete do
+      status @test_run.nil? ? 400 : @test_run.delete ? 200 : 500
       return nil
     end
-    test_run.to_json
-  end
 
-  # delete
-  delete '/:id' do
-    test_run = Hobson::Project::TestRun.find(id: params[:id]).first
-    if test_run.nil?
-      status 404
-    else
-      test_run.delete
-    end
-    return nil
   end
 
 

@@ -29,6 +29,16 @@ class Hobson::Project::TestRun < Hobson::Model
     super(options).merge(:tests => tests.to_a.as_json)
   end
 
+  def tests= tests
+    tests.each do |data|
+      data['uuid'] = "#{data.delete('type')}:#{data.delete('name')}"
+      test = self.tests.find(uuid:data['uuid']).first
+      test ||= Hobson::Project::TestRun::Test.new(test_run:self)
+      test.update(data)
+      test.save
+    end
+  end
+
 end
 
 require 'hobson/project/test_run/test'
