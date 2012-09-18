@@ -1,13 +1,22 @@
-Hobson::Server::TestRuns::Jobs = Hobson::Server::Controller.new do
+class Hobson::Server
 
-  get do
-    {'tests' => @project.tests.to_a}.to_json
-  end
+  namespace '/test_runs/:test_run_id/jobs' do
 
-  post do
-    params["test"]["project"] = @project
-    Hobson::Project::Test.create(params["test"])
-    return ""
+    namespace '/:job_index' do
+
+      namespace '/events' do
+
+        post do
+          @test_run = Hobson::TestRun[params['test_run_id']]
+          @job = @test_run.jobs.find(index:params['job_index']).first
+          @job.track_event!(params['event']) or status 500
+          ''
+        end
+
+      end
+
+    end
+
   end
 
 end

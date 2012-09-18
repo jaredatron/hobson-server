@@ -56,3 +56,5 @@ class Hobson::Server
   end
 
 end
+
+require 'hobson/server/test_runs/jobs'

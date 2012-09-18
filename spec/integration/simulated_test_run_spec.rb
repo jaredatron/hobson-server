@@ -36,13 +36,13 @@ describe Hobson::Server do
     get "/test_runs/1"
     response_data.should == j({
       "test_run" => {
-        "id"         => "1",
-        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
-        "sha"        => "12321321321321",
-        "requestor"  => "Jared Grippe",
-        "created_at" => now,
-        "tests"      => [],
-        "jobs"       => [],
+        "id"             => "1",
+        "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
+        "sha"            => "12321321321321",
+        "requestor"      => "Jared Grippe",
+        "created_at"     => now,
+        "tests"          => [],
+        "jobs"           => [],
       }
     })
 
@@ -121,6 +121,7 @@ describe Hobson::Server do
       }
     })
 
+    # list project tests
     get "/projects/#{e 'git@github.com:deadlyicon/hobson-server.git'}/tests"
     response_data.should == j({
       "tests" => [
@@ -139,12 +140,16 @@ describe Hobson::Server do
         },
       ]
     })
-    # # updating the status of a job
-    # post "/test_runs/1/jobs/0/step", {
-    #   "name" => "checking out code",
-    #   "at"   => "2012-09-17 18:13:02 -0700",
-    # }
-    # response.status.should == 200
+
+
+    # updating the status of a job
+    post "/test_runs/1/jobs/0/events", {
+      "event" => {
+        "description" => "checking out code",
+        "occurred_at" => "2012-09-17 18:13:02 -0700",
+      }
+    }
+    response.status.should == 200
 
 
     # started a test
