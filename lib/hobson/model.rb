@@ -13,8 +13,18 @@ class Hobson::Model < Ohm::Model
     Hobson::Model.redis
   end
 
+  class Invalid < StandardError; end
+
+  def self.create! atts = {}
+    instance = new(atts)
+    instance.save or raise Hobson::Model::Invalid, instance.errors
+  end
+
   def as_json options=nil
-    attributes.merge(:id => @id).as_json(options)
+    # attributes.merge(:id => @id).as_json(options)
+    attributes.keys.inject(:id => @id){|hash, attribute|
+      hash.update(attribute => send(attribute))
+    }.as_json(options)
   end
 
   def new_record?

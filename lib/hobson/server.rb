@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/namespace'
 require 'active_support/json'
+require 'active_support/core_ext/string/inflections'
 
 module Hobson
   class Hobson::Server < Sinatra::Base
@@ -15,6 +16,7 @@ require 'hobson/server/controller'
 
 # require 'hobson/server/base'
 require 'hobson/server/projects'
+require 'hobson/server/test_runs'
 
 # Hobson::Server = Rack::URLMap.new(
 #   '/projects' => Hobson::Server::Projects.new,
@@ -45,13 +47,10 @@ class Hobson::Server < Sinatra::Base
   error do
     puts env['sinatra.error'].inspect
     logger.error env['sinatra.error'].inspect
-    debugger;1
   end
 
-  # require 'hobson/server/projects'
-  # class_eval(&Hobson::Server::Projects::PROC)
-
-  namespace '/projects', &Hobson::Server::Projects
+  namespace '/projects',  &Hobson::Server::Projects
+  namespace '/test_runs', &Hobson::Server::TestRuns
 
 end
 

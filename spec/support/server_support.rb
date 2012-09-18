@@ -1,5 +1,8 @@
+require 'active_support/concern'
+
 module ServerSupport
 
+  extend ActiveSupport::Concern
   include Rack::Test::Methods
 
   def app
@@ -8,6 +11,21 @@ module ServerSupport
 
   def response
     last_response
+  end
+
+  def response_data
+    raise response.errors if response.errors != ""
+    response.body == '' ? nil : JSON.parse(response.body)
+  end
+
+  def response_should_equal expected_response
+    response.headers["Content-Type"].should == 'application/json;charset=utf-8'
+
+    if expected_response.nil?
+      response.body.should be_blank
+    else
+      response_data.should == JSON.parse(expected_response.to_json)
+    end
   end
 
   def encode_origin origin

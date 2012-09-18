@@ -6,9 +6,17 @@ describe Hobson::Server do
 
   let(:origin){ 'git@github.com:deadlyicon/hobson-server.git' }
 
-  def json
+  def response_data
     raise response.errors if response.errors != ""
     response.body == '' ? nil : JSON.parse(response.body)
+  end
+
+  def response_data_should_eql expected_response_data
+    if expected_response_data.nil?
+      response.body.should be_blank
+    else
+      response_data.should == JSON.parse(expected_response_data.to_json)
+    end
   end
 
   def uri
@@ -24,25 +32,25 @@ describe Hobson::Server do
   it "should be able to support a full test run" do
 
     get '/projects'
-    json.should == {'projects' => []}
+    response_data_should_eql({'projects' => []})
 
     post '/projects', {"project" => {"origin" => origin}}
-    json.should == nil
+    response_data_should_eql(nil)
 
     get '/projects'
-    json.should == {
+    response_data_should_eql({
       'projects' => [
         {"id" => "1", "origin" => origin}
       ]
-    }
+    })
 
     get "/projects/#{encode_origin(origin)}"
-    json.should == {"id" => "1", "origin" => origin}
+    response_data_should_eql({"id" => "1", "origin" => origin})
 
     get "/projects/#{encode_origin(origin)}/tests"
-    json.should == {
+    response_data_should_eql({
       "tests" => []
-    }
+    })
 
     tests = [
       ["1", 'spec', "models/user_spec.rb"],
@@ -60,7 +68,7 @@ describe Hobson::Server do
 
     # get project tests
     get "/projects/#{encode_origin(origin)}/tests"
-    json.should == {
+    response_data_should_eql({
       "tests" => tests.map{|(id, type,name)|
         {
           "project_id" => "1",
@@ -69,12 +77,12 @@ describe Hobson::Server do
           "name"       => name,
         }
       }
-    }
+    })
 
     get "/projects/#{encode_origin(origin)}/test_runs"
-    json.should == {
+    response_data_should_eql({
       "test_runs" => []
-    }
+    })
 
     post "/projects/#{encode_origin(origin)}/test_runs", {
       "test_run" => {
@@ -82,30 +90,29 @@ describe Hobson::Server do
         "requestor" => "Jared Grippe",
       }
     }
-    json.should == nil
+    response_data_should_eql(nil)
 
     get "/projects/#{encode_origin(origin)}/test_runs"
-    json.should == {
+    response_data_should_eql({
       "test_runs" => [
         {
           "project_id" => "1",
           "id"         => "1",
           "sha"        => "c10cde0d30e79be5c3d427862e9a89852d4f8496",
           "requestor"  => "Jared Grippe",
-          "created_at" => now.to_s,
+          "created_at" => now,
         }
       ]
-    }
-
+    })
 
     get "/projects/#{encode_origin(origin)}/test_runs/1"
-    json.should == {
+    response_data_should_eql({
       "project_id" => "1",
       "id"         => "1",
       "sha"        => "c10cde0d30e79be5c3d427862e9a89852d4f8496",
       "requestor"  => "Jared Grippe",
-      "created_at" => now.to_s,
-    }
+      "created_at" => now,
+    })
 
   end
 

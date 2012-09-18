@@ -11,6 +11,7 @@ describe '/projects' do
       get '/projects'
       response.should be_ok
       response.headers["Content-Type"].should == 'application/json;charset=utf-8'
+      JSON.parse(response.body).should == {"projects" => projects}.as_json
     end
 
     context "when there are no projects" do
@@ -18,20 +19,15 @@ describe '/projects' do
 
       it "should return an empty set" do
         get!
-        JSON.parse(response.body).should == {"projects" => []}
       end
     end
 
     context "when there are 2 projects" do
       let!(:projects) do
-        [
-          Hobson::Project.create(origin: 'git://github.com/soveran/ohm.git'),
-          Hobson::Project.create(origin: 'git://github.com/rails/rails.git'),
-        ]
+        [Factory.create(Hobson::Project), Factory.create(Hobson::Project)]
       end
       it "should return those 2 projects" do
         get!
-        JSON.parse(response.body).should == {"projects" => projects}.as_json
       end
     end
 

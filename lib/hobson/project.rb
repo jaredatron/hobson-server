@@ -7,6 +7,10 @@ class Hobson::Project < Hobson::Model
 
   index :origin
 
+  def validate
+    assert_present :origin
+  end
+
 end
 
 require 'hobson/project/test'
