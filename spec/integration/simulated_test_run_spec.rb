@@ -66,15 +66,32 @@ describe Hobson::Server do
         "requestor"  => "Jared Grippe",
         "created_at" => now,
         "tests" => [
-          {"id" => "1", "test_run_id" => "1", "type" => "spec", "name" => "models/user_spec.rb" },
-          {"id" => "2", "test_run_id" => "1", "type" => "spec", "name" => "models/post_spec.rb" },
-          {"id" => "3", "test_run_id" => "1", "type" => "scenario", "name" => "I should be able to see my first post" },
-          {"id" => "4", "test_run_id" => "1", "type" => "scenario", "name" => "I should be able to delete my first post" },
-        ]
+          {
+            "uuid"    => "spec:models/user_spec.rb",
+            "runtime" => nil,
+            "result"  => nil,
+            "tries"   => nil,
+          },{
+            "uuid"    => "spec:models/post_spec.rb",
+            "runtime" => nil,
+            "result"  => nil,
+            "tries"   => nil,
+          },{
+            "uuid"    => "scenario:I should be able to see my first post",
+            "runtime" => nil,
+            "result"  => nil,
+            "tries"   => nil,
+          },{
+            "uuid"    => "scenario:I should be able to delete my first post",
+            "runtime" => nil,
+            "result"  => nil,
+            "tries"   => nil,
+          },]
       }
     })
 
-    put "/projects/#{e origin}/test_runs/1/tests/1", {
+    # started a test
+    put "/projects/#{e origin}/test_runs/1/tests/#{e 'spec:models/user_spec.rb'}", {
       "test" => {
         "started_at" => "2012-09-17 18:13:02 -0700",
       }
