@@ -9,15 +9,14 @@ class Hobson::Server
 
     namespace '/:origin' do
 
-      # before do
-      #   @project = Hobson::Project.find(origin: params["origin"]).first
-      #   @project ||= Hobson::Project.create!(origin: params["origin"])
-      # end
+      before do
+        @project = Hobson::Project.find(origin: params["origin"]).first
+      end
 
       namespace '/tests' do
 
         get do
-          Hobson::Test
+          {tests: @project.tests.to_a}.to_json
         end
 
       end

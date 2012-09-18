@@ -2,7 +2,7 @@ class Hobson::TestRun::Test < Hobson::Model
 
   reference :test_run, :'Hobson::TestRun'
 
-  attribute :uuid       # "#{type}:#{name}"
+  attribute :uuid
   attribute :job_index
   attribute :started_at
   attribute :completed_at
@@ -12,8 +12,12 @@ class Hobson::TestRun::Test < Hobson::Model
   index :uuid
 
   def job
-    job = test_run.jobs.find(index:job_index).first
-    job ||= Hobson::TestRun::Job.create!(test_run: test_run, index: job_index)
+    test_run.jobs.find(index:job_index).first
+  end
+
+  def project_test
+    test_run.project.tests.find(uuid: uuid).first or \
+    Hobson::Project::Test.create!(project: test_run.project, uuid: uuid)
   end
 
   def validate

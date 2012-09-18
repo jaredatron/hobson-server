@@ -4,12 +4,6 @@ describe Hobson::Server do
 
   include ServerSupport
 
-  let(:origin){ 'git@github.com:deadlyicon/hobson-server.git' }
-
-  def uri
-    "/projects/#{encode_origin(origin)}"
-  end
-
   let!(:now){ Time.at(1347801214) }
 
   before do
@@ -22,8 +16,8 @@ describe Hobson::Server do
     post "/test_runs", {
       "test_run" => {
         "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
-        "sha" => "12321321321321",
-        "requestor" => "Jared Grippe",
+        "sha"            => "12321321321321",
+        "requestor"      => "Jared Grippe",
       }
     }
     response_data.should == j({
@@ -76,21 +70,19 @@ describe Hobson::Server do
       }
     }
 
-    # response.status.should == 200
+    response.status.should == 200
     response.body.should == ''
 
     # execute test run
 
     get "/test_runs/1"
-
-    response.status.should == 200
     response_data.should == j({
       "test_run" => {
-        "id"         => "1",
-        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
-        "sha"        => "12321321321321",
-        "requestor"  => "Jared Grippe",
-        "created_at" => now,
+        "id"             => "1",
+        "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
+        "sha"            => "12321321321321",
+        "requestor"      => "Jared Grippe",
+        "created_at"     => now,
         "jobs" => [
           {"index"=>"0"},
           {"index"=>"1"},
@@ -129,6 +121,24 @@ describe Hobson::Server do
       }
     })
 
+    get "/projects/#{e 'git@github.com:deadlyicon/hobson-server.git'}/tests"
+    response_data.should == j({
+      "tests" => [
+        {
+          "uuid"        => "spec:models/user_spec.rb",
+          "est_runtime" => 0.0,
+        },{
+          "uuid"        => "spec:models/post_spec.rb",
+          "est_runtime" => 0.0,
+        },{
+          "uuid"        => "scenario:I should be able to see my first post",
+          "est_runtime" => 0.0,
+        },{
+          "uuid"        => "scenario:I should be able to delete my first post",
+          "est_runtime" => 0.0,
+        },
+      ]
+    })
     # # updating the status of a job
     # post "/test_runs/1/jobs/0/step", {
     #   "name" => "checking out code",

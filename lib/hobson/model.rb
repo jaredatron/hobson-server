@@ -16,8 +16,11 @@ class Hobson::Model < Ohm::Model
   class Invalid < StandardError; end
 
   def self.create! atts = {}
-    instance = new(atts)
-    instance.save or raise Hobson::Model::Invalid, instance.errors
+    new(atts).save_or_raise_errors!
+  end
+
+  def save_or_raise_errors!
+    save or raise Hobson::Model::Invalid, errors
   end
 
   def self.find_or_create! atts = {}

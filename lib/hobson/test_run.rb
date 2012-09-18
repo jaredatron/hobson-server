@@ -44,19 +44,19 @@ class Hobson::TestRun < Hobson::Model
 
   def tests= tests
     tests.each do |data|
+      # find or create test run test
       test = self.tests.find(uuid:data['uuid']).first
       test ||= Hobson::TestRun::Test.new(test_run:self)
       test.update(data)
-      test.save
-
-      test.job
+      test.save_or_raise_errors!
+      test.project_test # ensure project test record exists
     end
+    true
   end
 
   def jobs= jobs
     jobs.each do |data|
-      job = Hobson::TestRun::Job.new(data)
-      job.save
+      Hobson::TestRun::Job.create! data.merge(test_run: self)
     end
   end
 
