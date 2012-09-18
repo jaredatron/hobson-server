@@ -8,6 +8,10 @@ module Hobson::Server::Helpers
     Hobson::TestRun.find(id: params["test_run_id"]).first or raise Sinatra::NotFound
   end
 
+  def find_test_run_test
+    test_run.tests.find(index:params['test_id']).first or raise Sinatra::NotFound
+  end
+
 
   def projects
     @projects ||= Hobson::Project.all.to_a.map{|project|

@@ -26,6 +26,8 @@ class Hobson::TestRun < Hobson::Model
     assert_present :created_at
   end
 
+  def path= path; end
+
   def as_json options=nil
     {
       'id'             => @id,

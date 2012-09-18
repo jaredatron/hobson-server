@@ -47,6 +47,15 @@ class Hobson::Server
   before do
     env['rack.logger'] = Hobson::Server.logger
     logger.info %(#{request.env["REQUEST_METHOD"]} #{request.env["PATH_INFO"]})
+
+    # this allows posting complex params via JSON
+    if params['JSON_PARAMS']
+      params.merge! JSON.parse(params.delete('JSON_PARAMS'))
+    end
+  end
+
+  error do
+    logger.error env['sinatra.error'].name
   end
 
 end
