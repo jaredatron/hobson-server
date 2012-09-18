@@ -6,19 +6,6 @@ describe Hobson::Server do
 
   let(:origin){ 'git@github.com:deadlyicon/hobson-server.git' }
 
-  def response_data
-    raise response.errors if response.errors != ""
-    response.body == '' ? nil : JSON.parse(response.body)
-  end
-
-  def response_data_should_eql expected_response_data
-    if expected_response_data.nil?
-      response.body.should be_blank
-    else
-      response_data.should == JSON.parse(expected_response_data.to_json)
-    end
-  end
-
   def uri
     "/projects/#{encode_origin(origin)}"
   end
@@ -32,23 +19,23 @@ describe Hobson::Server do
   it "should be able to support a full test run" do
 
     get '/projects'
-    response_data_should_eql({'projects' => []})
+    response_should_equal({'projects' => []})
 
     post '/projects', {"project" => {"origin" => origin}}
-    response_data_should_eql(nil)
+    response_should_equal(nil)
 
     get '/projects'
-    response_data_should_eql({
+    response_should_equal({
       'projects' => [
         {"id" => "1", "origin" => origin}
       ]
     })
 
     get "/projects/#{encode_origin(origin)}"
-    response_data_should_eql({"id" => "1", "origin" => origin})
+    response_should_equal({"id" => "1", "origin" => origin})
 
     get "/projects/#{encode_origin(origin)}/tests"
-    response_data_should_eql({
+    response_should_equal({
       "tests" => []
     })
 
@@ -68,7 +55,7 @@ describe Hobson::Server do
 
     # get project tests
     get "/projects/#{encode_origin(origin)}/tests"
-    response_data_should_eql({
+    response_should_equal({
       "tests" => tests.map{|(id, type,name)|
         {
           "project_id" => "1",
@@ -80,7 +67,7 @@ describe Hobson::Server do
     })
 
     get "/projects/#{encode_origin(origin)}/test_runs"
-    response_data_should_eql({
+    response_should_equal({
       "test_runs" => []
     })
 
@@ -90,10 +77,10 @@ describe Hobson::Server do
         "requestor" => "Jared Grippe",
       }
     }
-    response_data_should_eql(nil)
+    response_should_equal(nil)
 
     get "/projects/#{encode_origin(origin)}/test_runs"
-    response_data_should_eql({
+    response_should_equal({
       "test_runs" => [
         {
           "project_id" => "1",
@@ -106,7 +93,7 @@ describe Hobson::Server do
     })
 
     get "/projects/#{encode_origin(origin)}/test_runs/1"
-    response_data_should_eql({
+    response_should_equal({
       "project_id" => "1",
       "id"         => "1",
       "sha"        => "c10cde0d30e79be5c3d427862e9a89852d4f8496",

@@ -13,15 +13,8 @@ require 'hobson/project'
 
 require 'hobson/server/controller'
 
-
-# require 'hobson/server/base'
 require 'hobson/server/projects'
 require 'hobson/server/test_runs'
-
-# Hobson::Server = Rack::URLMap.new(
-#   '/projects' => Hobson::Server::Projects.new,
-# )
-
 
 
 class Hobson::Server < Sinatra::Base
@@ -52,7 +45,33 @@ class Hobson::Server < Sinatra::Base
   namespace '/projects',  &Hobson::Server::Projects
   namespace '/test_runs', &Hobson::Server::TestRuns
 
+  def self.resource name, &block
+
+    # INDEX
+
+    # CREATE
+
+    # READ
+
+    # UPDATE
+
+    # DELETE
+
+  end
+
+  resource :projects do
+
+  end
+
 end
 
 
+# /projects
+# /projects/git@github.com%2Frails%2Frails
+# /projects/git@github.com%2Frails%2Frails/tests
+# /projects/git@github.com%2Frails%2Frails/test_runs
+# /projects/git@github.com%2Frails%2Frails/test_runs/tests
+
+
+# POST /projects/git@github.com%2Frails%2Frails/test_runs
 
