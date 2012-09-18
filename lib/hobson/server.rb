@@ -4,19 +4,11 @@ require 'active_support/json'
 require 'active_support/core_ext/string/inflections'
 
 module Hobson
-  class Hobson::Server < Sinatra::Base
-  end
 end
 
 require 'hobson/model'
 require 'hobson/project'
 require 'hobson/test_run'
-
-# require 'hobson/server/controller'
-
-# require 'hobson/server/projects'
-# require 'hobson/server/test_runs'
-
 
 class Hobson::Server < Sinatra::Base
 
