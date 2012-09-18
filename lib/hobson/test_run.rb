@@ -54,6 +54,13 @@ class Hobson::TestRun < Hobson::Model
     end
   end
 
+  def jobs= jobs
+    jobs.each do |data|
+      job = Hobson::TestRun::Job.new(data)
+      job.save
+    end
+  end
+
 end
 
 require 'hobson/test_run/test'
