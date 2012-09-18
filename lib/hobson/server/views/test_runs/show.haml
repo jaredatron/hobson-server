@@ -11,3 +11,35 @@
 
   %dt Requestor
   %dd= test_run['requestor']
+
+
+%table.tests
+  %thead
+    %tr
+      %th Type
+      %th Name
+      %th job_index
+      %th started_at
+      %th completed_at
+      %th result
+      %th tries
+  %tbody
+    - test_run['tests'].each do |test|
+      - type, name = test_type_and_name(test)
+      %tr
+        %td
+          = type
+        %td
+          = name
+        %td
+          = test['job_index']
+        %td
+          = test['started_at']
+        %td
+          = test['completed_at']
+        %td
+          = test['result']
+        %td
+          = test['tries']
+
+= test_run.to_yaml

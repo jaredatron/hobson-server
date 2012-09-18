@@ -24,4 +24,8 @@ module Hobson::Server::Helpers
     @project_test_runs ||= project.test_runs.to_a
   end
 
+  def test_type_and_name test
+    test['uuid'].match(/^([^:]+):(.+)$/).to_a.last(2)
+  end
+
 end

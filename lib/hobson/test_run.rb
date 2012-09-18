@@ -34,8 +34,8 @@ class Hobson::TestRun < Hobson::Model
       'sha'            => sha,
       'requestor'      => requestor,
       'created_at'     => created_at,
-      'tests'          => tests.to_a,
-      'jobs'           => jobs.to_a,
+      'tests'          => tests.to_a.as_json,
+      'jobs'           => jobs.to_a.as_json,
     }
   end
 

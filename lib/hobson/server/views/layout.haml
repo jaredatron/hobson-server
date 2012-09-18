@@ -5,6 +5,13 @@
     %title Hobson
     %script{:src => "http://code.jquery.com/jquery-1.8.1.js", :type => "text/javascript"}
 
+  %body
 
+    #header
+      %ol.links
+        %li
+          - link_to 'Projects', projects_path
+        %li
+          - link_to 'Test Runs', test_runs_path
 
-  %body= yield
+    #content= yield

@@ -6,6 +6,10 @@ module Factory
     "git://github.com/#{Faker::Name.first_name}/#{Faker::Name.first_name}.git"
   end
 
+  def self.test_uuid
+    %(#{%w(spec scenario).sample}:#{Faker::Name.title})
+  end
+
   def self.create model, options={}
 
     case model.name
@@ -17,7 +21,7 @@ module Factory
     when Hobson::Project::Test.name
 
       options[:project] ||= Factory.create(Hobson::Project)
-      options[:uuid] ||= %(#{%w(spec scenario).sample}:#{Faker::Name.title})
+      options[:uuid] ||= Factory.test_uuid
       Hobson::Project::Test.create! options
 
     when Hobson::TestRun.name
@@ -27,7 +31,11 @@ module Factory
       options[:requestor] ||= "#{Faker::Name.first_name} #{Faker::Name.last_name}"
       Hobson::TestRun.create! options
 
-    # when Hobson::TestRun::Test.name
+    when Hobson::TestRun::Test.name
+
+      options[:uuid] ||= Factory.test_uuid
+      options[:job_index] ||= rand(5)
+      Hobson::TestRun::Test.create! options
 
     else
       raise "unknown model #{model}"

@@ -6,9 +6,14 @@ require 'bundler'
 Bundler.setup
 
 require 'debugger'
+require File.expand_path('../../spec/support/factory', __FILE__)
 
 require 'hobson/server'
 Hobson::Model.redis = Redis.new
 
-require 'irb'
-IRB.start
+if file = ARGV.shift
+  load file
+else
+  require 'irb'
+  IRB.start
+end

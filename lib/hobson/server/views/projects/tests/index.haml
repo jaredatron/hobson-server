@@ -2,11 +2,15 @@
 
 %table
   %thead
-    %th ID
-    %th sha
-    %th created_at
-    %th
+    %tr
+      %th Type
+      %th Name
+      %th Est. Runtime
+      %th
   %tbody
     - tests.each do |test|
+      - type, name = test_type_and_name(test)
       %tr
-        %td= test.to_yaml
+        %td= type
+        %td= name
+        %td= test['est_runtime']
