@@ -120,6 +120,14 @@ describe Hobson::Server do
       }
     })
 
+    # # updating the status of a job
+    # post "/test_runs/1/jobs/0/step", {
+    #   "name" => "checking out code",
+    #   "at"   => "2012-09-17 18:13:02 -0700",
+    # }
+    # response.status.should == 200
+
+
     # started a test
     put "/test_runs/1", {
       "test_run" => {
