@@ -13,6 +13,10 @@ class Hobson::Server
         @project = Hobson::Project.find(origin: params["origin"]).first
       end
 
+      get do
+        {project: @project}.to_json
+      end
+
       namespace '/tests' do
 
         get do

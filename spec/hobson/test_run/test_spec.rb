@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Hobson::Project::TestRun do
+describe Hobson::TestRun::Test do
 
   it_should_behave_like "a model"
 

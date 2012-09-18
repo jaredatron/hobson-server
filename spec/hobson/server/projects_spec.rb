@@ -33,47 +33,13 @@ describe '/projects' do
 
   end
 
-  # create
-  describe "post /projects" do
-    context "when given a valid post body" do
-      it "should work" do
-        Hobson::Project.all.size.should == 0
-        post '/projects', {"project" => {"origin" => "fakeorigin"}}
-        response.should be_ok
-        response.body.should == ''
-        Hobson::Project.all.size.should == 1
-        Hobson::Project[1].origin.should == "fakeorigin"
-      end
-    end
-
-  end
-
   # read
   describe "get /projects/:origin" do
+    let(:project){ Factory.create(Hobson::Project) }
     it "should work" do
-      project = Hobson::Project.create(origin: 'git://github.com/rails/rails.git')
       get project_path(project)
       response.should be_ok
-      JSON.parse(response.body).should == {
-        "id" => "1",
-        "origin" => 'git://github.com/rails/rails.git',
-      }
-    end
-  end
-
-  # delete
-  describe "delete /projects/:origin" do
-    it "should work" do
-      project = Hobson::Project.create(origin: 'git://github.com/rails/rails.git')
-      get project_path(project)
-      response.should be_ok
-
-      delete project_path(project)
-      response.should be_ok
-      Hobson::Project.all.size.should == 0
-
-      delete project_path(project)
-      response.should_not be_ok
+      response_data.should == j(project: project)
     end
   end
 

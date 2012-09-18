@@ -18,6 +18,10 @@ module ServerSupport
     response.body == '' ? nil : JSON.parse(response.body)
   end
 
+  def view_response!
+    File.open('/tmp/error.html','w'){|f| f.write(response.body) }; `open /tmp/error.html`
+  end
+
   def response_should_equal expected_response
     response.headers["Content-Type"].should == 'application/json;charset=utf-8'
 
@@ -42,6 +46,18 @@ module ServerSupport
 
   def project_path project
     "/projects/#{encode_origin(project.origin)}"
+  end
+
+  module ClassMethods
+    def freeze_time!
+
+      let!(:now){ Time.at(1347801214) }
+
+      before do
+        Time.should_receive(:now).any_number_of_times.and_return{ now }
+      end
+
+    end
   end
 
 end

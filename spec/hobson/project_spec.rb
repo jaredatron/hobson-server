@@ -13,18 +13,6 @@ describe Hobson::Project do
     project.origin.should_not be_nil
     project.origin.should == expected_project.origin
     project.tests.should be_empty
-
-
-    Hobson::Project::Test.create(
-      project: project,
-      type: 'spec',
-      name: 'models/user_spec.rb',
-    )
-
-    test = Hobson::Project[1].tests.first
-    test.project.should == project
-    test.type.should == 'spec'
-    test.name.should == 'models/user_spec.rb'
   end
 
 end
