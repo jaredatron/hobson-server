@@ -10,7 +10,7 @@ class Hobson::Server
     # create
     post do
       test_run = Hobson::TestRun.new(params["test_run"])
-      if test_run.save
+      if test_run.save && test_run.project
         {'test_run' => test_run}.to_json
       else
         status 406

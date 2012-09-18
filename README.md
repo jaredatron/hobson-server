@@ -2,7 +2,7 @@
 
     # project = Hobson::Project.create(origin: 'git@github.com/rails/rails')
 
-    test_run = Hobson::TestRun.create!(project:'git@github.com/rails/rails', sha:'a', requestor:'me')
+    test_run = Hobson::TestRun.create!(project_origin:'git@github.com/rails/rails', sha:'a', requestor:'me')
     test = Hobson::TestRun::Test.create!(test_run:test_run, uuid:'spec:ass_spec.rb', job_index:0)
 
 

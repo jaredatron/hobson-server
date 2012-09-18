@@ -1,6 +1,6 @@
 class Hobson::TestRun < Hobson::Model
 
-  attribute :project
+  attribute :project_origin
   attribute :sha
   attribute :requestor
   attribute :created_at
@@ -9,7 +9,7 @@ class Hobson::TestRun < Hobson::Model
   collection :jobs,  :'Hobson::TestRun::Job'
 
   index :id
-  index :project
+  index :project_origin
 
   def created_at
     created_at = @attributes[:created_at]
@@ -20,27 +20,26 @@ class Hobson::TestRun < Hobson::Model
 
   def validate
     self.created_at = Time.now if new_record?
-    assert_present :project
+    assert_present :project_origin
     assert_present :sha
     assert_present :requestor
     assert_present :created_at
   end
 
-  def as_json options={}
-    super(options).merge(:tests => tests.to_a.as_json)
-  end
-
-
   def as_json options=nil
     {
       'id'         => @id,
-      'project'    => project,
+      'project_origin'    => project_origin,
       'sha'        => sha,
       'requestor'  => requestor,
       'created_at' => created_at,
       'tests'      => tests.to_a,
       'jobs'       => jobs.to_a,
     }
+  end
+
+  def project
+    Hobson::Project.find_or_create!(origin:project_origin)
   end
 
   def tests= tests

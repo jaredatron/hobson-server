@@ -11,6 +11,12 @@ class Hobson::Project < Hobson::Model
     assert_present :origin
   end
 
+  def as_json options=nil
+    {
+      'origin' => origin
+    }
+  end
+
 end
 
 require 'hobson/project/test'

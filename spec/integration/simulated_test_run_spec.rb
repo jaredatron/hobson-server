@@ -21,7 +21,7 @@ describe Hobson::Server do
     # create test run (and project)
     post "/test_runs", {
       "test_run" => {
-        "project" => "git@github.com:deadlyicon/hobson-server.git",
+        "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
         "sha" => "12321321321321",
         "requestor" => "Jared Grippe",
       }
@@ -29,7 +29,7 @@ describe Hobson::Server do
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
-        "project"    => "git@github.com:deadlyicon/hobson-server.git",
+        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,
@@ -43,7 +43,7 @@ describe Hobson::Server do
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
-        "project"    => "git@github.com:deadlyicon/hobson-server.git",
+        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,
@@ -87,7 +87,7 @@ describe Hobson::Server do
     response_data.should == j({
       "test_run" => {
         "id"         => "1",
-        "project"    => "git@github.com:deadlyicon/hobson-server.git",
+        "project_origin"    => "git@github.com:deadlyicon/hobson-server.git",
         "sha"        => "12321321321321",
         "requestor"  => "Jared Grippe",
         "created_at" => now,
@@ -217,7 +217,7 @@ end
 #     get '/projects'
 #     response_should_equal({'projects' => []})
 
-#     post '/projects', {"project" => {"origin" => origin}}
+#     post '/projects', {"project_origin" => {"origin" => origin}}
 #     response_should_equal(nil)
 
 #     get '/projects'

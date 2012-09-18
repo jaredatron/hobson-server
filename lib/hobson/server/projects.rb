@@ -4,19 +4,24 @@ class Hobson::Server
 
     # index
     get do
-      {
-        projects: Hobson::TestRun.all.map(&:project).uniq.map{|origin|
-          {origin: origin}
-        }
-      }.to_json
+      {projects: Hobson::Project.all.to_a}.to_json
     end
 
-    # namespace '/:origin' do
+    namespace '/:origin' do
 
-    #   before do
-    #     @project = Hobson::Project.find(origin: params["origin"]).first
-    #     @project ||= Hobson::Project.create!(origin: params["origin"])
-    #   end
+      # before do
+      #   @project = Hobson::Project.find(origin: params["origin"]).first
+      #   @project ||= Hobson::Project.create!(origin: params["origin"])
+      # end
+
+      namespace '/tests' do
+
+        get do
+          Hobson::Test
+        end
+
+      end
+    end
 
     #   # read
     #   get do

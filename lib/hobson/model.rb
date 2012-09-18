@@ -20,6 +20,10 @@ class Hobson::Model < Ohm::Model
     instance.save or raise Hobson::Model::Invalid, instance.errors
   end
 
+  def self.find_or_create! atts = {}
+    find(atts).first or create!(atts)
+  end
+
   def as_json options=nil
     # attributes.merge(:id => @id).as_json(options)
     attributes.keys.inject(:id => @id){|hash, attribute|
