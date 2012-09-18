@@ -15,6 +15,7 @@ require 'hobson/model'
 require 'hobson/project'
 require 'hobson/test_run'
 require 'hobson/server/helpers'
+require 'hobson/server/presenters'
 
 class Hobson::Server
 

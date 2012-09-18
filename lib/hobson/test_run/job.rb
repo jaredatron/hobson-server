@@ -23,7 +23,7 @@ class Hobson::TestRun::Job < Hobson::Model
   def as_json options=nil
     {
       'index'  => self.index,
-      'events' => events.to_a,
+      'events' => events.to_a.as_json,
     }
   end
 

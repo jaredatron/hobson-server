@@ -1,3 +1,4 @@
+
 %h1 Test Run #{test_run['id']}
 
 %dl.details
@@ -13,33 +14,47 @@
   %dd= test_run['requestor']
 
 
+%h2 Jobs
+%ol.jobs
+  - test_run['jobs'].each do |job|
+    %li
+      = job['index']
+      %ol.events
+        - job['events'].each do |event|
+          %li{:'data-occurred_at' => event['occurred_at']}= event['description']
+
+%h3 Tests
 %table.tests
   %thead
     %tr
+      %th Job
       %th Type
       %th Name
-      %th job_index
-      %th started_at
-      %th completed_at
-      %th result
-      %th tries
+      %th Tries
+      %th Est. Runtime
+      %th Runtime
+      %th Status
+      %th Result
+      %th Logs
   %tbody
     - test_run['tests'].each do |test|
       - type, name = test_type_and_name(test)
       %tr
         %td
+          = test['job_index']
+        %td
           = type
         %td
           = name
         %td
-          = test['job_index']
+          = test['tries']
         %td
-          = test['started_at']
+          = test['est_runtime']
         %td
-          = test['completed_at']
+          = test['runtime']
+        %td
+          = test_run_test_status(test)
         %td
           = test['result']
         %td
-          = test['tries']
 
-= test_run.to_yaml

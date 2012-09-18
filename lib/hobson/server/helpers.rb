@@ -19,3 +19,4 @@ end
 require 'hobson/server/helpers/model_helpers'
 require 'hobson/server/helpers/url_helpers'
 require 'hobson/server/helpers/link_helpers'
+require 'hobson/server/helpers/test_run_helpers'
