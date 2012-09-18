@@ -1,8 +1,7 @@
 class Hobson::Server::Presenters::TestRun < Hobson::Server::Presenters::Base
 
-  def self.[] id
-    test_run = Hobson::TestRun.find(id: id).first or raise Sinatra::NotFound
-    new test_run.as_json
+  def jobs
+    @jobs ||= super.map{|job| Hobson::Server::Presenters::TestRun::Job.new(job) }
   end
 
   def tests
@@ -11,4 +10,5 @@ class Hobson::Server::Presenters::TestRun < Hobson::Server::Presenters::Base
 
 end
 
+require 'hobson/server/presenters/test_run/job'
 require 'hobson/server/presenters/test_run/test'

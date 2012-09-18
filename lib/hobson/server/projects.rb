@@ -4,13 +4,13 @@ class Hobson::Server
 
     # index
     get do
-      respond_with :'projects/index', {projects: projects}.as_json
+      respond_with :'projects/index', {projects: projects}
     end
 
     namespace '/:project_origin' do
 
       get do
-        respond_with :'projects/show', {project: project}.as_json
+        respond_with :'projects/show', {project: project}
       end
 
     end

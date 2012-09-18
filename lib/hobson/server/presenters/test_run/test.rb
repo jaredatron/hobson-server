@@ -1,12 +1,4 @@
-class Hobson::Server::Presenters::TestRun::Test < Hobson::Server::Presenters::Base
-
-  def type
-    uuid[/^([^:]+)/, 1]
-  end
-
-  def name
-    uuid[/^[^:]+:(.+)$/, 1]
-  end
+class Hobson::Server::Presenters::TestRun::Test < Hobson::Server::Presenters::Test
 
   def status
     result.present?     ? result :

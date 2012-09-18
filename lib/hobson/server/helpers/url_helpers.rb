@@ -14,7 +14,7 @@ module Hobson::Server::Helpers
   end
 
   def test_run_path test_run
-    "#{test_runs_path}/#{test_run['id']}"
+    "#{test_runs_path}/#{test_run.id}"
   end
 
   def project_test_runs_path project

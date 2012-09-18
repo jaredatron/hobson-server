@@ -4,14 +4,14 @@ class Hobson::Server
 
     # index
     get do
-      respond_with :'test_runs/index', :test_runs => test_runs.as_json
+      respond_with :'test_runs/index', :test_runs => test_runs
     end
 
     # create
     post do
       test_run = Hobson::TestRun.new(params["test_run"])
       if test_run.save && test_run.project
-        respond_with :'test_runs/show', :test_run => test_run.as_json
+        respond_with :'test_runs/show', :test_run => test_run
       else
         status 406
         {'errors' => test_run.errors}.to_json
@@ -29,7 +29,7 @@ class Hobson::Server
       put do
         test_run.update(params["test_run"])
         test_run.save or status 406
-        respond_with :'test_runs/show', :test_run => test_run.as_json
+        respond_with :'test_runs/show', :test_run => test_run
       end
 
       # delete

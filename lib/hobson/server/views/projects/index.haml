@@ -9,7 +9,7 @@
     - projects.each do |project|
       %tr
         %td
-          %a{href: project_path(project)}= project['origin']
+          %a{href: project_path(project)}= project.origin
         %td
           - delete_link 'X', project_path(project)
 

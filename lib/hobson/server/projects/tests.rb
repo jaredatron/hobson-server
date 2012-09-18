@@ -4,7 +4,7 @@ class Hobson::Server
 
     # index
     get do
-      respond_with :'projects/tests/index', :tests => project_tests.as_json
+      respond_with :'projects/tests/index', :tests => project_tests
     end
 
   end

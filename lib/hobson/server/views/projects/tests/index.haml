@@ -9,8 +9,8 @@
       %th
   %tbody
     - tests.each do |test|
-      - type, name = test_type_and_name(test)
       %tr
-        %td= type
-        %td= name
-        %td= test['est_runtime']
+        %td= test.type
+        %td= test.name
+        %td= test.est_runtime
+

@@ -17,10 +17,10 @@
 %ol.jobs
   - test_run.jobs.each do |job|
     %li
-      = job['index']
+      = job.index
       %ol.events
-        - job['events'].each do |event|
-          %li{:'data-occurred_at' => event['occurred_at']}= event['description']
+        - job.events.each do |event|
+          %li{:'data-occurred_at' => event.occurred_at}= event.description
 
 %h3 Tests
 %table.tests
