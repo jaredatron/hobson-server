@@ -58,6 +58,10 @@ describe Hobson::Server do
     # build test run
     put "/test_runs/1", {
       "test_run" => {
+        "jobs" => [
+          { "index" => "0" },
+          { "index" => "1" },
+        ],
         "tests" => [
           { "job_index" => "0", "uuid" => "spec:models/user_spec.rb" },
           { "job_index" => "0", "uuid" => "spec:models/post_spec.rb" },

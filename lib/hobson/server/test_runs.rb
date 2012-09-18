@@ -1,4 +1,4 @@
-Hobson::Server::TestRuns = Hobson::Server::Controller.new do
+ Hobson::Server::TestRuns = Hobson::Server::Controller.new do
 
   # index
   get do
@@ -7,9 +7,9 @@ Hobson::Server::TestRuns = Hobson::Server::Controller.new do
 
   # create
   post do
-    test_run = Hobson::TestRun.new(params["test_run"])
+    test_run = Hobson::TestRun.new(params)
     if test_run.save
-      {'test_run' => test_run}.to_json
+      test_run.to_json
     else
       status 406
       {'errors' => test_run.errors}.to_json
@@ -33,7 +33,7 @@ Hobson::Server::TestRuns = Hobson::Server::Controller.new do
 
     # update
     put do
-      @test_run.update(params["test_run"])
+      @test_run.update(params)
       if @test_run.save
         status 200
         ""
