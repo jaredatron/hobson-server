@@ -10,10 +10,6 @@ class Hobson::TestRun::Job::Event < Hobson::Model
     assert_present :occurred_at
   end
 
-  def occurred_at
-    Time.parse attributes[:occurred_at]
-  end
-
   def as_json options=nil
     {
       'description' => description,

@@ -84,8 +84,13 @@ describe Hobson::Server do
         "requestor"      => "Jared Grippe",
         "created_at"     => now,
         "jobs" => [
-          {"index"=>"0"},
-          {"index"=>"1"},
+          {
+            "index"  => "0",
+            "events" => [],
+          },          {
+            "index"  => "1",
+            "events" => [],
+          },
         ],
         "tests" => [
           {
@@ -151,7 +156,6 @@ describe Hobson::Server do
     }
     response.status.should == 200
 
-
     # started a test
     put "/test_runs/1", {
       "test_run" => {
@@ -164,6 +168,68 @@ describe Hobson::Server do
       }
     }
     response.status.should == 200
+
+
+    get "/test_runs/1"
+    response_data.should == j({
+      "test_run" => {
+        "id"             => "1",
+        "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
+        "sha"            => "12321321321321",
+        "requestor"      => "Jared Grippe",
+        "created_at"     => now,
+        "jobs" => [
+          {
+            "index" => "0",
+            "events" => [
+              {
+                "description" => "checking out code",
+                "occurred_at" => "2012-09-17 18:13:02 -0700",
+              }
+            ]
+          },
+          {
+            "index"  => "1",
+            "events" => [],
+          },
+        ],
+        "tests" => [
+          {
+            "uuid"         => "spec:models/user_spec.rb",
+            "job_index"    => "0",
+            "started_at"   => "2012-09-17 18:13:02 -0700",
+            "completed_at" => nil,
+            "result"       => nil,
+            "tries"        => nil,
+          },{
+            "uuid"         => "spec:models/post_spec.rb",
+            "job_index"    => "0",
+            "started_at"   => nil,
+            "completed_at" => nil,
+            "result"       => nil,
+            "tries"        => nil,
+          },{
+            "uuid"         => "scenario:I should be able to see my first post",
+            "job_index"    => "1",
+            "started_at"   => nil,
+            "completed_at" => nil,
+            "result"       => nil,
+            "tries"        => nil,
+          },{
+            "uuid"         => "scenario:I should be able to delete my first post",
+            "job_index"    => "1",
+            "started_at"   => nil,
+            "completed_at" => nil,
+            "result"       => nil,
+            "tries"        => nil,
+          },
+        ]
+      }
+    })
+
+
+
+
 
     get "/test_runs/1"
     response_data["test_run"]["tests"][0].should == j({
