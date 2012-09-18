@@ -1,0 +1,13 @@
+%h1 Test Run #{test_run['id']}
+
+%dl.details
+  %dt Project
+  %dd
+    %a{:href => project_path(test_run)}= test_run['project_origin']
+
+  %dt SHA
+  %dd
+    - test_run_sha_link(test_run)
+
+  %dt Requestor
+  %dd= test_run['requestor']

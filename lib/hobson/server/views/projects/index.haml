@@ -1,0 +1,15 @@
+%h1 Projects
+
+
+%table
+  %thead
+    %th Origin
+    %th
+  %tbody
+    - projects.each do |project|
+      %tr
+        %td
+          %a{href: project_path(project)}= project['origin']
+        %td
+          - delete_link 'X', project_path(project)
+

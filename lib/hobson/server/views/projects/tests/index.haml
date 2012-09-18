@@ -1,0 +1,12 @@
+%h1 Project Tests
+
+%table
+  %thead
+    %th ID
+    %th sha
+    %th created_at
+    %th
+  %tbody
+    - tests.each do |test|
+      %tr
+        %td= test.to_yaml

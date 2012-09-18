@@ -2,10 +2,13 @@ class Hobson::Project < Hobson::Model
 
   attribute :origin
 
-  collection :tests,     :'::Hobson::Project::Test'
-  collection :test_runs, :'::Hobson::Project::TestRun'
+  collection :tests, :'::Hobson::Project::Test'
 
   index :origin
+
+  def test_runs
+    Hobson::TestRun.find(project_origin: origin)
+  end
 
   def validate
     assert_present :origin
@@ -21,4 +24,3 @@ class Hobson::Project < Hobson::Model
 end
 
 require 'hobson/project/test'
-# require 'hobson/project/test_run'

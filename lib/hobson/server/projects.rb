@@ -4,27 +4,20 @@ class Hobson::Server
 
     # index
     get do
-      {projects: Hobson::Project.all.to_a}.to_json
+      respond_with :'projects/index', {projects: projects}.as_json
     end
 
-    namespace '/:origin' do
-
-      before do
-        @project = Hobson::Project.find(origin: params["origin"]).first
-      end
+    namespace '/:project_origin' do
 
       get do
-        {project: @project}.to_json
+        respond_with :'projects/show', {project: project}.as_json
       end
 
-      namespace '/tests' do
-
-        get do
-          {tests: @project.tests.to_a}.to_json
-        end
-
-      end
     end
 
   end
+
 end
+
+require 'hobson/server/projects/test_runs'
+require 'hobson/server/projects/tests'

@@ -1,9 +1,12 @@
-Hobson::Server::Projects::TestRuns = Hobson::Server::Controller.new do
+class Hobson::Server
 
-  # index
-  get do
-    test_runs = Hobson::Project::TestRun.find(project:params["project"]).to_a
-    {'test_runs' => test_runs}.to_json
+  namespace '/projects/:project_origin/test_runs' do
+
+    # index
+    get do
+      respond_with :'projects/test_runs/index', :test_runs => project_test_runs.as_json
+    end
+
   end
 
 end

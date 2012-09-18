@@ -4,14 +4,14 @@ class Hobson::Server
 
     # index
     get do
-      {'test_runs' => Hobson::TestRun.all.to_a}.to_json
+      respond_with :'test_runs/index', :test_runs => Hobson::TestRun.all.to_a.as_json
     end
 
     # create
     post do
       test_run = Hobson::TestRun.new(params["test_run"])
       if test_run.save && test_run.project
-        {'test_run' => test_run}.to_json
+        respond_with :'test_runs/show', :test_run => test_run.as_json
       else
         status 406
         {'errors' => test_run.errors}.to_json
@@ -21,34 +21,28 @@ class Hobson::Server
     namespace '/:id' do
 
       before do
-        @test_run = Hobson::TestRun.find(id: params[:id]).first
+        @test_run = Hobson::TestRun.find(id: params[:id]).first or raise Sinatra::NotFound
       end
 
       # read
       get do
-        if @test_run.nil?
-          status 404
-          return nil
-        end
-        {'test_run' => @test_run}.to_json
+        respond_with :'test_runs/show', :test_run => @test_run.as_json
       end
 
       # update
       put do
         @test_run.update(params["test_run"])
-        if @test_run.save
-          status 200
-          ""
-        else
-          status 406
-          {'errors' => @test_run.errors}.to_json
-        end
+        @test_run.save or status 406
+        respond_with :'test_runs/show', :test_run => @test_run.as_json
       end
 
       # delete
       delete do
         status @test_run.nil? ? 400 : @test_run.delete ? 200 : 500
-        return nil
+        respond_to do |f|
+          f.json { nil }
+          f.html { redirect test_runs_path }
+        end
       end
 
     end

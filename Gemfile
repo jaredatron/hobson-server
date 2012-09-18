@@ -1,14 +1,16 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'sinatra'
+gem 'sinatra-partial'
 gem 'ohm'
 gem 'activesupport'
+gem 'haml'
 
 group :development do
 
   gem 'autotest-standalone'
   gem 'sinatra-reloader'
+  gem 'shotgun'
 
 end
 
