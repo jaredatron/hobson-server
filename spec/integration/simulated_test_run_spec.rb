@@ -40,6 +40,7 @@ describe Hobson::Server do
         "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
         "sha"            => "12321321321321",
         "requestor"      => "Jared Grippe",
+        "url"            => "http://example.org/test_runs/1",
         "created_at"     => now,
         "tests"          => [],
         "jobs"           => [],
@@ -91,6 +92,7 @@ describe Hobson::Server do
         "project_origin" => "git@github.com:deadlyicon/hobson-server.git",
         "sha"            => "12321321321321",
         "requestor"      => "Jared Grippe",
+        "url"            => "http://example.org/test_runs/1",
         "created_at"     => now,
         "jobs" => [
           {

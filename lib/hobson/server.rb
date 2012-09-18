@@ -51,6 +51,10 @@ class Hobson::Server < Sinatra::Base
       path_to_url "/projects/#{encode project.origin}"
     end
 
+    def test_run_url test_run
+      path_to_url "/test_runs/#{test_run.id}"
+    end
+
   end
 
 end
