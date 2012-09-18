@@ -30,7 +30,7 @@ class Hobson::Server
   register Sinatra::RespondWith
   register Sinatra::Partial
 
-  # respond_to :html, :json
+  respond_to :html, :json
 
   root = File.expand_path('..', __FILE__) + '/server'
 
@@ -38,8 +38,8 @@ class Hobson::Server
   set :public_folder,       File.join(root, "public")
   set :static,              true
   set :partial_underscores, true
-  # set :raise_errors,        true
-  # set :show_exceptions,     true
+  set :raise_errors,        true
+  set :show_exceptions,     true
   enable :sessions,         :logging
 
   helpers Hobson::Server::Helpers
