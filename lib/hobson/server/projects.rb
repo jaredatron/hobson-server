@@ -14,7 +14,9 @@ class Hobson::Server
       end
 
       get do
-        {project: @project}.to_json
+        project = @project.as_json
+        project['url'] = project_url(@project)
+        {project: project}.to_json
       end
 
       namespace '/tests' do

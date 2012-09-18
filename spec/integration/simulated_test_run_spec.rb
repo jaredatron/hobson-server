@@ -54,6 +54,15 @@ describe Hobson::Server do
       ]
     })
 
+    # list projects
+    get "/projects/#{e 'git@github.com:deadlyicon/hobson-server.git'}"
+    response_data.should == j({
+      "project" => {
+        "origin" => "git@github.com:deadlyicon/hobson-server.git",
+        "url"    => "http://example.org/projects/git@github.com:deadlyicon%2Fhobson-server.git",
+      }
+    })
+
     # build test run
     put "/test_runs/1", {
       "test_run" => {
