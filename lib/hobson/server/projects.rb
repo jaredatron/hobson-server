@@ -15,6 +15,7 @@ Hobson::Server::Projects = Hobson::Server::Controller.new do
 
     before do
       @project = Hobson::Project.find(origin: params["origin"]).first
+      @project ||= Hobson::Project.create!(origin: params["origin"])
     end
 
     # read

@@ -6,7 +6,7 @@ class Hobson::Project::TestRun < Hobson::Model
   attribute :requestor
   attribute :created_at
 
-  collection :tests, :Test
+  collection :tests, :'Hobson::Project::TestRun::Test'
   # collection :jobs,  :Job
 
   index :id
@@ -25,4 +25,10 @@ class Hobson::Project::TestRun < Hobson::Model
     assert_present :created_at
   end
 
+  def as_json options={}
+    super(options).merge(:tests => tests.to_a.as_json)
+  end
+
 end
+
+require 'hobson/project/test_run/test'

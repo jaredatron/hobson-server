@@ -11,7 +11,8 @@ Hobson::Server::Projects::TestRuns = Hobson::Server::Controller.new do
     params["test_run"]["project"] = @project
     test_run = Hobson::Project::TestRun.new(params["test_run"])
     if test_run.save
-      return nil
+      # debugger;1
+      test_run.to_json
     else
       status 406
       {'errors' => test_run.errors}.to_json

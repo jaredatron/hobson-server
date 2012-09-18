@@ -64,14 +64,3 @@ class Hobson::Server < Sinatra::Base
   end
 
 end
-
-
-# /projects
-# /projects/git@github.com%2Frails%2Frails
-# /projects/git@github.com%2Frails%2Frails/tests
-# /projects/git@github.com%2Frails%2Frails/test_runs
-# /projects/git@github.com%2Frails%2Frails/test_runs/tests
-
-
-# POST /projects/git@github.com%2Frails%2Frails/test_runs
-

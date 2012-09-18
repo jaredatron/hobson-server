@@ -28,6 +28,14 @@ module ServerSupport
     end
   end
 
+  def e string
+    URI.encode(string).gsub('/', '%2F')
+  end
+
+  def j data
+    JSON.parse(data.to_json)
+  end
+
   def encode_origin origin
     origin.gsub('/', '%2F')
   end
