@@ -85,7 +85,6 @@ describe Hobson::Server do
     }
 
     response.status.should == 200
-    response.body.should == ''
 
     # execute test run
 
@@ -113,29 +112,33 @@ describe Hobson::Server do
             "job_index"    => "0",
             "started_at"   => nil,
             "completed_at" => nil,
+            "est_runtime"  => 0.0,
             "result"       => nil,
-            "tries"        => nil,
+            "tries"        => 0,
           },{
             "uuid"         => "spec:models/post_spec.rb",
             "job_index"    => "0",
             "started_at"   => nil,
             "completed_at" => nil,
+            "est_runtime"  => 0.0,
             "result"       => nil,
-            "tries"        => nil,
+            "tries"        => 0,
           },{
             "uuid"         => "scenario:I should be able to see my first post",
             "job_index"    => "1",
             "started_at"   => nil,
             "completed_at" => nil,
+            "est_runtime"  => 0.0,
             "result"       => nil,
-            "tries"        => nil,
+            "tries"        => 0,
           },{
             "uuid"         => "scenario:I should be able to delete my first post",
             "job_index"    => "1",
             "started_at"   => nil,
             "completed_at" => nil,
+            "est_runtime"  => 0.0,
             "result"       => nil,
-            "tries"        => nil,
+            "tries"        => 0,
           },
         ]
       }
@@ -202,10 +205,11 @@ describe Hobson::Server do
     response_data["test_run"]["tests"][0].should == j({
       "uuid"         => "spec:models/user_spec.rb",
       "job_index"    => "0",
+      "est_runtime"  => 0.0,
       "started_at"   => "2012-09-17 18:13:02 -0700",
       "completed_at" => nil,
       "result"       => nil,
-      "tries"        => nil,
+      "tries"        => 0,
     })
 
     # complete the test
@@ -228,6 +232,7 @@ describe Hobson::Server do
     response_data["test_run"]["tests"][0].should == j({
       "uuid"         => "spec:models/user_spec.rb",
       "job_index"    => "0",
+      "est_runtime"  => 0.0,
       "started_at"   => "2012-09-17 18:13:02 -0700",
       "completed_at" => "2012-09-17 18:13:04 -0700",
       "result"       => 'PASS',

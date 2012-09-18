@@ -27,14 +27,15 @@ class Hobson::Server
 
       # update
       put do
+        test_run = find_test_run
         test_run.update(params["test_run"])
         test_run.save or status 406
-        respond_with :'test_runs/show', :test_run => test_run
+        respond_with :'test_runs/show', :test_run => test_run.as_json
       end
 
       # delete
       delete do
-        status test_run.nil? ? 400 : test_run.delete ? 200 : 500
+        find_test_run.delete
         respond_to do |f|
           f.json { nil }
           f.html { redirect test_runs_path }

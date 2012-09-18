@@ -5,6 +5,12 @@ module ServerSupport
   extend ActiveSupport::Concern
   include Rack::Test::Methods
 
+  included do
+    before do
+      current_session.header('Accept', 'application/json, text/javascript, */*; q=0.01')
+    end
+  end
+
   def app
     Hobson::Server
   end
@@ -23,8 +29,6 @@ module ServerSupport
   end
 
   def response_should_equal expected_response
-    response.headers["Content-Type"].should == 'application/json;charset=utf-8'
-
     if expected_response.nil?
       response.body.should be_blank
     else

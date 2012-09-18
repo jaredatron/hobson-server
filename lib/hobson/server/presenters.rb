@@ -1,6 +1,11 @@
 module Hobson::Server::Presenters
 
   class Base < OpenStruct
+
+    def as_json options=nil
+      @table
+    end
+
   end
 
 end

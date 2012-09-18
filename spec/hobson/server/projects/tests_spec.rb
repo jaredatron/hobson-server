@@ -13,7 +13,6 @@ describe '/projects/tests' do
     def get!
       get "#{project_path(project)}/tests"
       response.should be_ok
-      response.headers["Content-Type"].should == 'application/json;charset=utf-8'
       response_should_equal({"tests" => tests})
     end
 

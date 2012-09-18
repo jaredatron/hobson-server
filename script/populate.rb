@@ -1,7 +1,7 @@
 
 
 
-test_run = Hobson::TestRun.create!(project_origin:'git@github.com/rails/rails', sha:'a', requestor:'me')
+test_run = Factory.create(Hobson::TestRun)
 
 
 %w(spec scenario).each do |type|

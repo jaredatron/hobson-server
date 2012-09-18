@@ -12,7 +12,6 @@ describe '/test_runs' do
     def get!
       get "/test_runs"
       response.should be_ok
-      response.headers["Content-Type"].should == 'application/json;charset=utf-8'
     end
 
     context "when there are no test_runs" do
@@ -88,7 +87,8 @@ describe '/test_runs' do
       get "/test_runs/1"
       response.should be_ok
       delete "/test_runs/1"
-      response.should be_ok
+
+      response.status.should == 406
       Hobson::TestRun.all.size.should == 0
 
       delete "/test_runs/1"

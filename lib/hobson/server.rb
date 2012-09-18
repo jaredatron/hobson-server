@@ -25,12 +25,12 @@ class Hobson::Server
     @logger ||= Logger.new(LOGFILE)
   end
 
-  use Rack::MethodOverride
+  # use Rack::MethodOverride
   register Sinatra::Namespace
   register Sinatra::RespondWith
   register Sinatra::Partial
 
-  respond_to :html, :json
+  # respond_to :html, :json
 
   root = File.expand_path('..', __FILE__) + '/server'
 
@@ -48,21 +48,6 @@ class Hobson::Server
     env['rack.logger'] = Hobson::Server.logger
     logger.info %(#{request.env["REQUEST_METHOD"]} #{request.env["PATH_INFO"]})
   end
-
-  # error do
-  #   puts env['sinatra.error'].inspect
-  #   logger.error env['sinatra.error'].inspect
-  # end
-
-  # not_found do
-  #   'This is nowhere to be found.'
-  # end
-
-  # FUCKED = Class.new(StandardError)
-
-  # error FUCKED do
-  #   "your fucked"
-  # end
 
 end
 

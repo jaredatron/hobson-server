@@ -10,7 +10,6 @@ describe '/projects' do
     def get!
       get '/projects'
       response.should be_ok
-      response.headers["Content-Type"].should == 'application/json;charset=utf-8'
       JSON.parse(response.body).should == {"projects" => projects}.as_json
     end
 
